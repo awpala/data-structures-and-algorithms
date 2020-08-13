@@ -2,7 +2,7 @@
     CLRS Exercise 6.5-3, p. 165
 */
 
-const { MinHeap } = require('../data-structures/p156_minHeap');
+const { MinHeap } = require('./p156_MinHeap');
 
 class MinPQ extends MinHeap {
     constructor(A, heapSize) {

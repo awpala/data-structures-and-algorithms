@@ -2,7 +2,7 @@
     CLRS Section 6.4, p. 160
 */
 
-const { MaxHeap } = require('../data-structures/p157_maxHeap');
+const { MaxHeap } = require('../data-structures/p157_MaxHeap');
 
 const heapsort = (A) => {
     const maxHeap = new MaxHeap(A, A.length);

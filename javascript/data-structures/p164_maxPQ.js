@@ -2,7 +2,7 @@
     CLRS Section 6.5, p. 164
 */
 
-const { MaxHeap } = require('../data-structures/p157_maxHeap');
+const { MaxHeap } = require('./p157_MaxHeap');
 
 class MaxPQ extends MaxHeap {
     constructor(A, heapSize) {

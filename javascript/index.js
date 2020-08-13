@@ -88,7 +88,7 @@ console.log('\nsorted:', B);
 console.log('\n\n|----- DATA STRUCTURES ----|');
 
 // CLRS Section 6.3 - Max-Heap
-const { MaxHeap } = require('./data-structures/p157_maxHeap');
+const { MaxHeap } = require('./data-structures/p157_MaxHeap');
 A = [];
 
 console.log('\nSection 6.3 - Max-Heap');
@@ -114,7 +114,7 @@ maxHeap.buildMaxHeap();
 console.log('\nafter buildMaxHeap:', maxHeap.A);
 
 // CLRS Section 6.3 - Min-Heap
-const { MinHeap } = require('./data-structures/p156_minHeap');
+const { MinHeap } = require('./data-structures/p156_MinHeap');
 A = [];
 
 console.log('\nSection 6.3 - Min-Heap');
@@ -130,7 +130,7 @@ minHeap.buildMinHeap();
 console.log('\nafter buildMinHeap:', minHeap.A);
 
 // CLRS Section 6.5 - Max Priority Queue
-const { MaxPQ } = require('./data-structures/p164_maxPQ');
+const { MaxPQ } = require('./data-structures/p164_MaxPQ');
 A = [];
 
 console.log('\nSection 6.5 - Max Priority Queue');
@@ -155,7 +155,7 @@ console.log('\nafter maxHeapInsert:', maxPQ.A);
 // console.log('\nafter heapDelete:', maxPQ.A, maxPQ.heapSize);
 
 // CLRS Section 6.5 Exercises - Min Priority Queue
-const { MinPQ } = require('./data-structures/p165_minPQ');
+const { MinPQ } = require('./data-structures/p165_MinPQ');
 A = [];
 
 console.log('\nExercise 6.5-3 - Min Priority Queue');
@@ -171,4 +171,27 @@ minPQ = new MinPQ(A, A.length);
 minPQ.buildMinHeap();
 minPQ.minHeapInsert(6);
 console.log('\nafter minHeapInsert:', minPQ.A);
+
+// CLRS Section 10.1 - Stack
+const { Stack } = require('./data-structures/p233_Stack');
+
+console.log('\nSection 10.1 - Stack');
+
+let S = new Stack([15, 6, 2, 9, undefined, undefined, undefined], 3); // cf. Figure 10.1, p. 233
+S.push(17);
+S.push(3);
+console.log('\nafter push(17), push(3):', S.S);
+S.pop();
+console.log('after pop():', S.S);
+
+S = new Stack(new Array(6).fill(undefined)); // cf. Exercise 10.1-1, p. 235
+S.push(4);
+S.push(1);
+S.push(3);
+console.log('\nafter push(4), push(1), push(3):', S.S);
+S.pop();
+S.push(8);
+console.log('after pop(), push(8):', S.S);
+S.pop();
+console.log('after pop():', S.S);
 
