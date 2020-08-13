@@ -12,7 +12,7 @@ console.log('\n|----- SORTING ALGORITHMS ----|');
 const { insertionSort } = require('./sorting/p18_insertionSort');
 A = [];
 
-console.log('\n Section 2.1 - Insertion Sort');
+console.log('\nSection 2.1 - Insertion Sort');
 
 A = [5, 2, 4, 6, 1, 3]; // cf. Figure 2.2, p. 18
 insertionSort(A);
@@ -26,7 +26,7 @@ console.log('\n', A);
 const { mergeSort } = require('./sorting/p34_mergeSort');
 A = [];
 
-console.log('\n Section 2.3 - Merge Sort');
+console.log('\nSection 2.3 - Merge Sort');
 
 A = [2, 4, 5, 7, 1, 2, 3, 6]; // cf. Figure 2.3, p. 32
 mergeSort(A, 0, A.length-1);
@@ -40,10 +40,20 @@ console.log('\n', A);
 const { bubbleSort } = require('./sorting/p40_bubbleSort');
 A = [];
 
-console.log('\n Chapter 2 Problem 2-2 - Bubble Sort');
+console.log('\nChapter 2 Problem 2-2 - Bubble Sort');
 
 A = [3, 41, 52, 26, 38, 57, 9, 49]; // cf. Exercise 2.3-1, p. 37
 bubbleSort(A);
+console.log('\n', A);
+
+// CLRS Section 6.4 - Heap Sort
+const { heapSort } = require('./sorting/p160_heapSort');
+A = [];
+
+console.log('\nSection 6.4 - Heap Sort');
+
+A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]; // cf. Figure 6.4, p. 161
+heapSort(A);
 console.log('\n', A);
 
 // ----- DATA STRUCTURES ----- //
@@ -53,7 +63,7 @@ console.log('\n|----- DATA STRUCTURES ----|');
 const { MaxHeap } = require('./data-structures/p157_maxHeap');
 A = [];
 
-console.log('\n Section 6.3 - Max-Heap');
+console.log('\nSection 6.3 - Max-Heap');
 
 A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1]; // cf. Figure 6.2, p. 152
 let maxHeap = new MaxHeap(A, A.length);
@@ -79,7 +89,7 @@ console.log('\n', maxHeap.A);
 const { MinHeap } = require('./data-structures/p156_minHeap');
 A = [];
 
-console.log('\n Section 6.3 - Min-Heap');
+console.log('\nSection 6.3 - Min-Heap');
 
 A = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]; // cf. Figure 6.3, p. 158
 let minHeap = new MinHeap(A, A.length);
