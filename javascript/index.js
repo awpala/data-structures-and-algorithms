@@ -67,6 +67,9 @@ A = [2, 8, 7, 1, 3, 5, 6, 4]; // cf. Figure 7.1, p. 172
 quicksort(A, 0, A.length - 1);
 console.log('\nsorted:', A);
 
+A = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]; // cf. Exercise 7.1-1, p. 173
+quicksort(A, 0, A.length-1);
+console.log('\nsorted:', A);
 
 // ----- DATA STRUCTURES ----- //
 console.log('\n|----- DATA STRUCTURES ----|');
