@@ -71,8 +71,21 @@ A = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11]; // cf. Exercise 7.1-1, p. 173
 quicksort(A, 0, A.length-1);
 console.log('\nsorted:', A);
 
+// CLRS Section 8.2 - Counting Sort
+const { countingSort } = require('./sorting/p195_countingSort');
+A = [];
+let B = [];
+
+console.log('\nSection 8.2 - Counting Sort');
+
+A = [2, 5, 3, 0, 2, 3, 0, 3]; // cf. Figure 8.2, p. 195
+B = new Array(A.length);
+countingSort(A, B, Math.max(...A)); // N.B. k = 5
+console.log('\nsorted:', B);
+
+
 // ----- DATA STRUCTURES ----- //
-console.log('\n|----- DATA STRUCTURES ----|');
+console.log('\n\n|----- DATA STRUCTURES ----|');
 
 // CLRS Section 6.3 - Max-Heap
 const { MaxHeap } = require('./data-structures/p157_maxHeap');
