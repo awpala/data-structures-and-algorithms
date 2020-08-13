@@ -12,8 +12,8 @@ const merge = (A, p, q, r) => {
     for (let j = 0; j < n2; j++) {
         R[j] = A[q + j + 1];
     }
-    L[n1] = Infinity;
-    R[n2] = Infinity;
+    L[n1] = Number.POSITIVE_INFINITY;
+    R[n2] = Number.POSITIVE_INFINITY;
     let i = 0;
     let j = 0;
     for (let k = p; k <= r; k++) {
