@@ -4,7 +4,7 @@
 
 const { MaxHeap } = require('../data-structures/p157_maxHeap');
 
-const heapSort = (A) => {
+const heapsort = (A) => {
     const maxHeap = new MaxHeap(A, A.length);
     maxHeap.buildMaxHeap();
     for(let i = A.length - 1; i >= 1; i--) {
@@ -15,5 +15,5 @@ const heapSort = (A) => {
 }
 
 module.exports = {
-    heapSort
+    heapsort
 }

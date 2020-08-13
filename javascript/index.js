@@ -5,6 +5,7 @@
 // import utilities (ADTs)
 let { A } = require('./utilities');
 
+
 // ----- SORTING ALGORITMS ----- //
 console.log('\n|----- SORTING ALGORITHMS ----|');
 
@@ -46,15 +47,26 @@ A = [3, 41, 52, 26, 38, 57, 9, 49]; // cf. Exercise 2.3-1, p. 37
 bubbleSort(A);
 console.log('\nsorted:', A);
 
-// CLRS Section 6.4 - Heap Sort
-const { heapSort } = require('./sorting/p160_heapSort');
+// CLRS Section 6.4 - Heapsort
+const { heapsort } = require('./sorting/p160_heapsort');
 A = [];
 
-console.log('\nSection 6.4 - Heap Sort');
+console.log('\nSection 6.4 - Heapsort');
 
 A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]; // cf. Figure 6.4, p. 161
-heapSort(A);
+heapsort(A);
 console.log('\nsorted:', A);
+
+// CLRS Section 7.1 - Quicksort
+const { quicksort } = require('./sorting/p171_quicksort');
+A = [];
+
+console.log('\nSection 7.1 - Quicksort');
+
+A = [2, 8, 7, 1, 3, 5, 6, 4]; // cf. Figure 7.1, p. 172
+quicksort(A, 0, A.length - 1);
+console.log('\nsorted:', A);
+
 
 // ----- DATA STRUCTURES ----- //
 console.log('\n|----- DATA STRUCTURES ----|');
