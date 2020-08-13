@@ -36,3 +36,13 @@ A = [3, 41, 52, 26, 38, 57, 9, 49]; // cf. Exercise 2.3-1, p. 37
 mergeSort(A, 0, A.length-1);
 console.log('\n', A);
 
+// CLRS Chapter 2 Problems - Bubble Sort
+const { bubbleSort } = require('./sorting/p40_bubbleSort');
+A = [];
+
+console.log('\n Chapter 2 Problem 2-2 - Bubble Sort');
+
+A = [3, 41, 52, 26, 38, 57, 9, 49]; // cf. Exercise 2.3-1, p. 37
+bubbleSort(A);
+console.log('\n', A);
+
