@@ -75,4 +75,19 @@ maxHeap = new MaxHeap(A, A.length);
 maxHeap.buildMaxHeap();
 console.log('\n', maxHeap.A);
 
+// CLRS Section 6.3 - Min-Heap
+const { MinHeap } = require('./data-structures/p156_minHeap');
+A = [];
+
+console.log('\n Section 6.3 - Min-Heap');
+
+A = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]; // cf. Figure 6.3, p. 158
+let minHeap = new MinHeap(A, A.length);
+minHeap.buildMinHeap();
+console.log('\n', minHeap.A);
+
+A = [5, 3, 17, 10, 84, 19, 6, 22, 9]; // cf. Exercise 6.3-1, p. 159
+minHeap = new MinHeap(A, A.length);
+minHeap.buildMinHeap();
+console.log('\n', minHeap.A);
 
