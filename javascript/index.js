@@ -10,7 +10,7 @@ let { A } = require('./utilities');
 console.log('\n|----- SORTING ALGORITHMS ----|');
 
 // CLRS Section 2.1 - Insertion Sort
-const { insertionSort } = require('./sorting/p18_insertionSort');
+const { insertionSort } = require('./sorting/p018_insertionSort');
 A = [];
 
 console.log('\nSection 2.1 - Insertion Sort');
@@ -24,7 +24,7 @@ insertionSort(A);
 console.log('\nsorted:', A);
 
 // CLRS Section 2.3 - Merge Sort
-const { mergeSort } = require('./sorting/p34_mergeSort');
+const { mergeSort } = require('./sorting/p034_mergeSort');
 A = [];
 
 console.log('\nSection 2.3 - Merge Sort');
@@ -38,7 +38,7 @@ mergeSort(A, 0, A.length-1);
 console.log('\nsorted:', A);
 
 // CLRS Chapter 2 Problems - Bubble Sort
-const { bubbleSort } = require('./sorting/p40_bubbleSort');
+const { bubbleSort } = require('./sorting/p040_bubbleSort');
 A = [];
 
 console.log('\nProblem 2-2 - Bubble Sort');
