@@ -397,5 +397,12 @@ console.log(`hashSearch(59) with double hashing makes ${T.collisionsSrch} collis
 T.hashDelete(4);
 console.log(`after hashDelete(4) with double hashing, with ${T.collisionsDel} total collisions:`, T.T);
 
-
+console.log(
+    '\nSummary of operations for hash table with probing (total collisions):'
+    ,'\n| Collision Resolution | hashInsert\'s | hashSearch(59) | hashDelete(4)|'
+    ,'\n|----------------------|--------------|----------------|--------------|'
+    ,'\n| Linear Probing       | 14           | 7              | 2            |'
+    ,'\n| Quadratic Probing    | 11           | 6              | 2            |'
+    ,'\n| Double Hashing       | 4            | 0              | 1            |'
+);
 
