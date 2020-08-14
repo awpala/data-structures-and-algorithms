@@ -1,6 +1,7 @@
 /*
     CLRS Section 11.2, p. 258
 */
+
 const { LinkedList } = require('./p238_LinkedList');
 
 class HashTableChaining {

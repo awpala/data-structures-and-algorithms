@@ -300,7 +300,7 @@ const { HashTableChaining } = require('./data-structures/p258_HashTableChaining'
 
 console.log('\nSection 11.2 - Hash Table with Chaining');
 
-let T = new HashTableChaining(9); // cf. Exercise 10.1-3, p. 261
+let T = new HashTableChaining(9); // cf. Exercise 11.2-2, p. 261
 T.chainedHashInsert(new ListNode(5));
 T.chainedHashInsert(new ListNode(28));
 T.chainedHashInsert(new ListNode(19));
