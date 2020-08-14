@@ -195,3 +195,28 @@ console.log('after pop(), push(8):', S.S);
 S.pop();
 console.log('after pop():', S.S);
 
+// CLRS Section 10.1 - Queue
+const { Queue } = require('./data-structures/p235_Queue');
+
+console.log('\nSection 10.1 - Queue');
+
+let Q = new Queue([undefined, undefined, undefined, undefined, undefined, undefined, 15, 6, 9, 8, 4, undefined], 6, 11); // cf. Figure 10.2, p. 234
+Q.enqueue(17);
+Q.enqueue(3);
+Q.enqueue(5);
+console.log('\nafter enqueue(17), enqueue(3), enqueue(5):', Q.Q);
+Q.dequeue();
+console.log('after dequeue():', Q.Q);
+
+
+Q = new Queue(new Array(6).fill(undefined)); // cf. Exercise 10.1-3, p. 235
+Q.enqueue(4);
+Q.enqueue(1);
+Q.enqueue(3);
+console.log('\nafter enqueue(4), enqueue(1), enqueue(3):', Q.Q);
+Q.dequeue();
+console.log('after dequeue():', Q.Q);
+Q.enqueue(8);
+Q.dequeue();
+console.log('after enqueue(8), dequeue():', Q.Q);
+
