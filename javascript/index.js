@@ -3,7 +3,8 @@
 */
 
 // import utilities (ADTs)
-let { A } = require('./utilities');
+let A = require('./utilities');
+const ListNode = require('./utilities');
 
 
 // ----- SORTING ALGORITMS ----- //
@@ -236,3 +237,32 @@ Q.headEnqueue(8);
 console.log('after headEnqueue(8):', Q.Q);
 Q.tailDequeue();
 console.log('after tailDequeue():', Q.Q);
+
+// CLRS Section 10.2 - Linked List
+const { LinkedList } = require('./data-structures/p238_LinkedList');
+
+console.log('\nSection 10.2 - Linked List');
+
+let L = new LinkedList();
+L.listInsert(new ListNode(1));
+L.listInsert(new ListNode(4));
+L.listInsert(new ListNode(16));
+L.listInsert(new ListNode(9));
+L.listInsert(new ListNode(25));
+console.log('\nafter listInsert(25):'
+    , L.head.key, '->'
+    , L.head.next.key, '->'
+    , L.head.next.next.key, '->'
+    , L.head.next.next.next.key, '->'
+    , L.head.next.next.next.next.key, '->'
+    , L.head.next.next.next.next.next
+);
+let deleteNode = L.listSearch(4);
+L.listDelete(deleteNode);
+console.log('after listDelete(4):'
+    , L.head.key, '->'
+    , L.head.next.key, '->'
+    , L.head.next.next.key, '->'
+    , L.head.next.next.next.key, '->'
+    , L.head.next.next.next.next
+);
