@@ -247,7 +247,7 @@ let L = new LinkedList();
 L.listInsert(new ListNode(1));
 L.listInsert(new ListNode(4));
 L.listInsert(new ListNode(16));
-L.listInsert(new ListNode(9));
+L.listInsert(new ListNode(9)); // cf. Figure 10.3, p. 237
 L.listInsert(new ListNode(25));
 console.log('\nafter listInsert(25):'
     , L.head.key, '->'
@@ -265,4 +265,33 @@ console.log('after listDelete(4):'
     , L.head.next.next.key, '->'
     , L.head.next.next.next.key, '->'
     , L.head.next.next.next.next
+);
+
+// CLRS Section 10.2 - Circular Linked List
+const { CircularLL } = require('./data-structures/p240_CircularLL');
+
+console.log('\nSection 10.2 - Circular Linked List');
+
+L = new CircularLL();
+L.listInsert(new ListNode(1));
+L.listInsert(new ListNode(4));
+L.listInsert(new ListNode(16));
+L.listInsert(new ListNode(9)); // cf. Figure 10.4, p. 239
+L.listInsert(new ListNode(25));
+console.log('\nafter listInsert(25):'
+    , L.nil.next.key, '->'
+    , L.nil.next.next.key, '->'
+    , L.nil.next.next.next.key, '->'
+    , L.nil.next.next.next.next.key, '->'
+    , L.nil.next.next.next.next.next.key, '->'
+    , L.nil.next.next.next.next.next.next.key
+);
+deleteNode = L.listSearch(4);
+L.listDelete(deleteNode);
+console.log('after listDelete(4):'
+, L.nil.next.key, '->'
+, L.nil.next.next.key, '->'
+, L.nil.next.next.next.key, '->'
+, L.nil.next.next.next.next.key, '->'
+, L.nil.next.next.next.next.next.key
 );
