@@ -31,7 +31,7 @@ class Queue {
         if(this.queueEmpty()) {
             throw new Error('underflow');
         } else {
-            const x = this.Q.splice(this.head, 1, undefined);
+            const x = this.Q.splice(this.head, 1, undefined)[0];
             if (this.head === this.Q.length - 1) {
                 this.head = 0;
             } else {

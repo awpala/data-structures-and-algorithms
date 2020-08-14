@@ -220,3 +220,19 @@ Q.enqueue(8);
 Q.dequeue();
 console.log('after enqueue(8), dequeue():', Q.Q);
 
+// CLRS Section 10.1 Exercises - Deque
+const { Deque } = require('./data-structures/p236_Deque');
+
+console.log('\nExercise 10.1-5 - Deque');
+
+Q = new Deque(new Array(6).fill(undefined)); // cf. Exercise 10.1-3, p. 235
+Q.tailEnqueue(4);
+Q.tailEnqueue(1);
+Q.tailEnqueue(3);
+console.log('\nafter tailEnqueue(4), tailEnqueue(1), tailEnqueue(3):', Q.Q);
+Q.headDequeue();
+console.log('after headDequeue():', Q.Q);
+Q.headEnqueue(8);
+console.log('after headEnqueue(8):', Q.Q);
+Q.tailDequeue();
+console.log('after tailDequeue():', Q.Q);
