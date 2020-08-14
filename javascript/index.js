@@ -1,5 +1,6 @@
 /*
-    This file uses the data structures and algorithms in the console
+    This application demonstrates use of the data structures and
+    algorithms in the console
 */
 
 // import utilities (ADTs)
@@ -342,3 +343,59 @@ T.T.forEach((list, i) => {
         console.log(str);
     }
 })
+
+// CLRS Section 11.4 - Hash Table with Probing
+const { HashTableProbing } = require('./data-structures/p271_HashTableProbing');
+
+console.log('\nSection 11.4 - Hash Table with Probing');
+
+T = new HashTableProbing(9, 'lp'); // cf. Exercise 11.4-1, p. 277
+T.hashInsert(10);
+T.hashInsert(22);
+T.hashInsert(31);
+T.hashInsert(4);
+T.hashInsert(15);
+T.hashInsert(28);
+T.hashInsert(17);
+T.hashInsert(88);
+T.hashInsert(59);
+console.log(`\nafter hashInsert's with linear probing, with ${T.collisionsIns} total collisions:`, T.T);
+T.hashSearch(59);
+console.log(`hashSearch(59) with linear probing makes ${T.collisionsSrch} collisions`);
+T.hashDelete(4);
+console.log(`after hashDelete(4) with linear probing, with ${T.collisionsDel} total collisions:`, T.T);
+
+T = new HashTableProbing(9, 'qp');
+T.hashInsert(10);
+T.hashInsert(22);
+T.hashInsert(31);
+T.hashInsert(4);
+T.hashInsert(15);
+T.hashInsert(28);
+T.hashInsert(17);
+T.hashInsert(88);
+T.hashInsert(59);
+console.log(`\nafter hashInsert's with quadratic probing, with ${T.collisionsIns} total collisions:`, T.T);
+T.hashSearch(59);
+console.log(`hashSearch(59) with quadratic probing makes ${T.collisionsSrch} collisions`);
+T.hashDelete(4);
+console.log(`after hashDelete(4) with quadratic probing, with ${T.collisionsDel} total collisions:`, T.T);
+
+T = new HashTableProbing(9, 'dh');
+T.hashInsert(10);
+T.hashInsert(22);
+T.hashInsert(31);
+T.hashInsert(4);
+T.hashInsert(15);
+T.hashInsert(28);
+T.hashInsert(17);
+T.hashInsert(88);
+T.hashInsert(59);
+console.log(`\nafter hashInsert's with double hashing, with ${T.collisionsIns} total collisions:`, T.T);
+T.hashSearch(59);
+console.log(`hashSearch(59) with double hashing makes ${T.collisionsSrch} collisions`);
+T.hashDelete(4);
+console.log(`after hashDelete(4) with double hashing, with ${T.collisionsDel} total collisions:`, T.T);
+
+
+
