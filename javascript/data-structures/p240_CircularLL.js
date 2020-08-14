@@ -2,7 +2,7 @@
     CLRS Section 10.2, p. 240
 */
 
-const ListNode = require('../utilities');
+const { ListNode } = require('../utilities');
 
 class CircularLL {
     constructor() {

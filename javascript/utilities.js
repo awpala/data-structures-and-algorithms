@@ -15,7 +15,15 @@ class ListNode {
     }
 };
 
-module.exports = (
-    A,
-    ListNode
-);
+class TreeNode {
+    constructor(key, parent = null, left = null, right = null) {
+        this.key = key;
+        this.parent = parent;
+        this.left = left;
+        this.right = right;
+    }
+};
+
+module.exports.A = A;
+module.exports.ListNode = ListNode;
+module.exports.TreeNode = TreeNode;

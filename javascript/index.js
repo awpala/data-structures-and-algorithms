@@ -3,8 +3,7 @@
 */
 
 // import utilities (ADTs)
-let A = require('./utilities');
-const ListNode = require('./utilities');
+let { A, ListNode, TreeNode } = require('./utilities');
 
 
 // ----- SORTING ALGORITMS ----- //
@@ -286,12 +285,60 @@ console.log('\nafter listInsert(25):'
     , L.nil.next.next.next.next.next.key, '->'
     , L.nil.next.next.next.next.next.next.key
 );
-deleteNode = L.listSearch(4);
+deleteNode = L.listSearch(1);
 L.listDelete(deleteNode);
-console.log('after listDelete(4):'
+console.log('after listDelete(1):'
 , L.nil.next.key, '->'
 , L.nil.next.next.key, '->'
 , L.nil.next.next.next.key, '->'
 , L.nil.next.next.next.next.key, '->'
 , L.nil.next.next.next.next.next.key
 );
+
+// CLRS Section 11.2 - Hash Table with Chaining
+const { HashTableChaining } = require('./data-structures/p258_HashTableChaining');
+
+console.log('\nSection 11.2 - Hash Table with Chaining');
+
+let T = new HashTableChaining(9); // cf. Exercise 10.1-3, p. 261
+T.chainedHashInsert(new ListNode(5));
+T.chainedHashInsert(new ListNode(28));
+T.chainedHashInsert(new ListNode(19));
+T.chainedHashInsert(new ListNode(15));
+T.chainedHashInsert(new ListNode(20));
+T.chainedHashInsert(new ListNode(33));
+T.chainedHashInsert(new ListNode(12));
+T.chainedHashInsert(new ListNode(17));
+T.chainedHashInsert(new ListNode(10));
+console.log('\nafter chainedHashInsert\'s:');
+T.T.forEach((list, i) => {
+    if(list.head === null) {
+        console.log(`${i}: ${list.head}`);
+    } else {
+        let str = `${i}: `;
+        let pointer = list.head;
+        while(pointer !== null) {
+            str += `${pointer.key} -> `;
+            pointer = pointer.next;
+        }
+        str += 'null';
+        console.log(str);
+    }
+})
+deleteNode = T.chainedHashSearch(19);
+T.chainedHashDelete(deleteNode);
+console.log('after chainedHashDelete(19):');
+T.T.forEach((list, i) => {
+    if(list.head === null) {
+        console.log(`${i}: ${list.head}`);
+    } else {
+        let str = `${i}: `;
+        let pointer = list.head;
+        while(pointer !== null) {
+            str += `${pointer.key} -> `;
+            pointer = pointer.next;
+        }
+        str += 'null';
+        console.log(str);
+    }
+})
