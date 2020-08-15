@@ -4,7 +4,7 @@
 */
 
 // import utilities (ADTs)
-let { A, ListNode, TreeNode } = require('./utilities');
+let { A, ListNode, TreeNode, RBTreeNode } = require('./utilities');
 
 
 // ----- SORTING ALGORITMS ----- //

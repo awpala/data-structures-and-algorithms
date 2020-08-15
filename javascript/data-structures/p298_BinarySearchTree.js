@@ -11,14 +11,14 @@ class BinarySearchTree {
     inorderTreeWalk = (x) => {
         if (x !== null) {
             this.inorderTreeWalk(x.left);
-            console.log(`${x.key} `);
+            console.log(x.key);
             this.inorderTreeWalk(x.right);
         }
     }
 
     preorderTreeWalk = (x) => { // cf. Exercise 12.1-4, p. 289
         if (x !== null) {
-            console.log(`${x.key} `);
+            console.log(x.key);
             this.preorderTreeWalk(x.left);
             this.preorderTreeWalk(x.right);
         }
@@ -28,7 +28,7 @@ class BinarySearchTree {
         if (x !== null) {
             this.postorderTreeWalk(x.left);
             this.postorderTreeWalk(x.right);
-            console.log(`${x.key} `);
+            console.log(x.key);
         }
     }
 

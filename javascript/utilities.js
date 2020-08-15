@@ -24,6 +24,14 @@ class TreeNode {
     }
 };
 
+class RBTreeNode extends TreeNode {
+    constructor(key, color = 'BLACK', p = null, left = null, right = null) {
+        super(key, p, left, right);
+        this.color = color;
+    }
+}
+
 module.exports.A = A;
 module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
+module.exports.RBTreeNode = RBTreeNode;
