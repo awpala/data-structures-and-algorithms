@@ -139,14 +139,16 @@ console.log('\nSection 6.5 - Max Priority Queue');
 A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]; // cf. Figure 6.5, p. 164
 let maxPQ = new MaxPQ(A, A.length);
 maxPQ.buildMaxHeap();
+console.log('\nafter buildMaxHeap:', maxPQ.A);
 maxPQ.heapIncreaseKey(8, 15);
-console.log('\nafter heapIncreaseKey:', maxPQ.A);
+console.log('after heapIncreaseKey(4 -> 15):', maxPQ.A);
 
 A = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1]; // cf. Exercise 6.5-2, p. 165
 maxPQ = new MaxPQ(A, A.length);
 maxPQ.buildMaxHeap();
+console.log('\nafter buildMaxHeap:', maxPQ.A);
 maxPQ.maxHeapInsert(10);
-console.log('\nafter maxHeapInsert:', maxPQ.A);
+console.log('after maxHeapInsert(10):', maxPQ.A);
 
 // TO-DO: fix heapDelete
 // A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]; // cf. Figure 6.5, p. 164
@@ -164,14 +166,16 @@ console.log('\nExercise 6.5-3 - Min Priority Queue');
 A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]; // cf. Figure 6.5, p. 164
 let minPQ = new MinPQ(A, A.length);
 minPQ.buildMinHeap();
+console.log('\nafter buildMinHeap:', minPQ.A);
 minPQ.heapDecreaseKey(5, 2);
-console.log('\nafter heapDecreaseKey:', minPQ.A);
+console.log('after heapDecreaseKey(9 -> 2):', minPQ.A);
 
 A = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1]; // cf. Exercise 6.5-2, p. 165
 minPQ = new MinPQ(A, A.length);
 minPQ.buildMinHeap();
+console.log('\nafter buildMinHeap:', minPQ.A);
 minPQ.minHeapInsert(6);
-console.log('\nafter minHeapInsert:', minPQ.A);
+console.log('after minHeapInsert(6):', minPQ.A);
 
 // CLRS Section 10.1 - Stack
 const { Stack } = require('./data-structures/p233_Stack');
