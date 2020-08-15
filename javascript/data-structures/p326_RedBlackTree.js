@@ -30,7 +30,7 @@ class RedBlackTree {
         x.p = y;
     }
 
-    rightRotate = (x) => { // cf. Exercise 13.2-1, p. 313
+    rightRotate = (y) => { // cf. Exercise 13.2-1, p. 313
         let x = y.left; // set x
         y.left = x.right; // turn x's right subtree into y's left subtree
         if (x.right !== this.nil) {
@@ -88,12 +88,21 @@ class RedBlackTree {
     }
 
     RBInsert = (z) => {
+        if (this.size === 0) { // N.B. guard against x.key undefined (see below note)
+            this.root = z;
+            this.size++;
+            z.color = 'BLACK';
+            z.p = this.nil;
+            z.left = this.nil;
+            z.right = this.nil;
+            return;
+        }
         this.size++;
         let y = this.nil;
         let x = this.root;
         while (x !== this.nil) {
             y = x;
-            if (z.key < x.key) {
+            if (z.key < x.key) { // N.B. if this.size === 0, x.key is undefined
                 x = x.left;
             } else {
                 x = x.right;
@@ -125,7 +134,7 @@ class RedBlackTree {
     }
 
     treeMinimum = (x) => {
-        while (x.left !== null) {
+        while (x.left !== this.nil) {
             x = x.left;
         }
         return x;
@@ -187,6 +196,14 @@ class RedBlackTree {
     }
 
     RBDelete = (z) => {
+        if (this.size === 1) { // delete out directly if only 1 tree node present
+            this.root = null;
+            this.size--;
+            z.left = undefined;
+            z.right = undefined;
+            z.p = undefined;
+            return;
+        }
         this.size--;
         let y = z;
         let yOriginalColor = y.color;
@@ -199,7 +216,7 @@ class RedBlackTree {
         } else {
             y = this.treeMinimum(z.right);
             yOriginalColor = y.color;
-            x = y.right;
+            let x = y.right;
             if (y.p === z) {
                 x.p = y;
             } else {
@@ -215,6 +232,74 @@ class RedBlackTree {
         if (yOriginalColor === 'BLACK') {
             this.RBDeleteFixup(x);
         }
+    }
+
+    // additional red-black tree procedures (cf. BinarySearchTree)
+
+    inorderTreeWalk = (x) => {
+        if (x !== this.nil) {
+            this.inorderTreeWalk(x.left);
+            console.log(x.key);
+            this.inorderTreeWalk(x.right);
+        }
+    }
+
+    preorderTreeWalk = (x) => { // cf. Exercise 12.1-4, p. 289
+        if (x !== this.nil) {
+            console.log(x.key);
+            this.preorderTreeWalk(x.left);
+            this.preorderTreeWalk(x.right);
+        }
+    }
+
+    postorderTreeWalk = (x) => { // cf. Exercise 12.1-4, p. 289
+        if (x !== this.nil) {
+            this.postorderTreeWalk(x.left);
+            this.postorderTreeWalk(x.right);
+            console.log(x.key);
+        }
+    }
+
+    treeSearch = (x, k) => {
+        if (x === this.nil || k === x.key) {
+            return x;
+        }
+        if (k < x.key) {
+            return this.treeSearch(x.left, k);
+        } else {
+            return this.treeSearch(x.right, k);
+        }
+    }
+
+    treeMaximum = (x) => {
+        while (x.right !== this.nil) {
+            x = x.right;
+        }
+        return x;
+    }
+
+    treeSuccessor = (x) => {
+        if (x.right !== this.nil) {
+            return this.treeMinimum(x.right);
+        }
+        let y = x.p;
+        while (y !== this.nil && x === y.right) {
+            x = y;
+            y = y.p;
+        }
+        return y;
+    }
+
+    treePredecessor = (x) => { // cf. Exercise 12.2-3, p. 293
+        if (x.left !== this.nil) {
+            return this.treeMaximum(x.left);
+        }
+        let y = x.p;
+        while (y !== this.nil && x === y.left) {
+            x = y;
+            y = y.p;
+        }
+        return y;
     }
 }
 

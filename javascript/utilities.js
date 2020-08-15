@@ -25,7 +25,7 @@ class TreeNode {
 };
 
 class RBTreeNode extends TreeNode {
-    constructor(key, color = 'BLACK', p = null, left = null, right = null) {
+    constructor(key, color = null, p = null, left = null, right = null) {
         super(key, p, left, right);
         this.color = color;
     }
