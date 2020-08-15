@@ -33,4 +33,5 @@ The objective of this repository is to gain insight into these fundamental conce
 | Data Structures | Circular Linked List with Sentinel | Section 10.2 | (N/A) |
 | Data Structures | Hash Table with Chaining | Section 11.2 | Linked List |
 | Data Structures | Hash Table with Probing | Section 11.4 | (N/A) |
+| Data Structures | Binary Search Tree | Chapter 12 | (N/A) |
 

@@ -406,3 +406,77 @@ console.log(
     ,'\n| Double Hashing       | 4            | 0              | 1            |'
 );
 
+// CLRS Chapter 12 - Binary Search Tree
+const { BinarySearchTree } = require('./data-structures/p298_BinarySearchTree');
+
+console.log('\nChapter 12 - Binary Search Tree');
+
+T = new BinarySearchTree();
+T.treeInsert(new TreeNode(12));
+T.treeInsert(new TreeNode(5));
+T.treeInsert(new TreeNode(18));
+T.treeInsert(new TreeNode(2));
+T.treeInsert(new TreeNode(9));
+T.treeInsert(new TreeNode(15));
+T.treeInsert(new TreeNode(19));
+T.treeInsert(new TreeNode(17)); // cf. Figure 12.3, p. 295
+console.log('\nafter treeInsert(17):');
+let spacing = '      ';
+let offset = Math.pow(2, Math.log2(Math.ceil(T.size - 1)));
+let nodeStr = `${spacing.repeat(offset)}${T.root.key}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${T.root.left.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.right.key}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${T.root.left.left.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.left.right.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.right.left.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.right.right.key}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${T.root.left.left.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.left.left.right}${spacing.repeat(offset * 2.5)}` // null
+        +`${T.root.left.right.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.left.right.right}${spacing.repeat(offset * 2.5)}` // null
+        +`${T.root.right.left.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.right.left.right.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.left.right.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.left.right.right}`; // null
+console.log(nodeStr);
+deleteNode = T.treeSearch(T.root, 18);
+T.treeDelete(deleteNode);
+console.log('\nafter treeDelete(18):');
+offset = Math.pow(2, Math.log2(Math.ceil(T.size - 1)));
+nodeStr = `${spacing.repeat(offset)}${T.root.key}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${T.root.left.key}${spacing.repeat(offset * 2.25)}`
+        +`${T.root.right.key}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${T.root.left.left.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.left.right.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.right.left.key}${spacing.repeat(offset * 2.5)}`
+        +`${T.root.right.right}`; // null
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${T.root.left.left.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.left.left.right}${spacing.repeat(offset * 2.5)}` // null
+        +`${T.root.left.right.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.left.right.right}${spacing.repeat(offset * 2.5)}` // null
+        +`${T.root.right.left.left}${spacing.repeat(offset * 2)}` // null
+        +`${T.root.right.left.right.key}${spacing.repeat(offset * 2.5)}`;
+console.log(nodeStr);
+console.log('\ninorderTreeWalk(root):');
+T.inorderTreeWalk(T.root);
+console.log('\preorderTreeWalk(root):');
+T.preorderTreeWalk(T.root);
+console.log('\postorderTreeWalk(root):');
+T.postorderTreeWalk(T.root);
+console.log('\ntreePredecessor(root):', T.treePredecessor(T.root.left.right).key);

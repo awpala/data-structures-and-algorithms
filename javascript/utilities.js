@@ -16,9 +16,9 @@ class ListNode {
 };
 
 class TreeNode {
-    constructor(key, parent = null, left = null, right = null) {
+    constructor(key, p = null, left = null, right = null) {
         this.key = key;
-        this.parent = parent;
+        this.p = p;
         this.left = left;
         this.right = right;
     }
