@@ -479,4 +479,8 @@ console.log('\preorderTreeWalk(root):');
 T.preorderTreeWalk(T.root);
 console.log('\postorderTreeWalk(root):');
 T.postorderTreeWalk(T.root);
-console.log('\ntreePredecessor(root):', T.treePredecessor(T.root.left.right).key);
+console.log('\ntreeMinimum(root):', T.treeMinimum(T.root).key);
+console.log('treeMaximum(root):', T.treeMaximum(T.root).key);
+console.log('treePredecessor(root):', T.treePredecessor(T.root).key);
+console.log('treePredecessor(root):', T.treeSuccessor(T.root).key);
+
