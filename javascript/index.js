@@ -713,3 +713,35 @@ console.log('\nafter RBDelete(41):');
 offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
 nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
 console.log(nodeStr);
+
+
+// ----- ALGORITHM DESIGN TECHNIQUES ----- //
+console.log('\n\n|----- ALGORITHM DESIGN TECHNIQUES ----|');
+
+// CLRS Section 15.1 - Dynamic Programming: Rod Cutting
+const { RodCutting } = require('./algorithm-techniques/p369_DPRodCutting');
+
+console.log('\nSection 15.1 - Dynamic Programming: Rod Cutting');
+
+let p = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30]; // cf. Figure 15.1, p. 360
+padding = 4;
+let iStr = '   0', pStr = '   0';
+p.forEach((_, i) => iStr += String(i + 1).padStart(padding));
+p.forEach((price) => pStr += String(price).padStart(padding));
+console.log('\nPrice list:');
+console.log('   i:', iStr);
+console.log('p[i]:', pStr);
+
+let rodCutting = new RodCutting(p);
+let optimalRevenue = rodCutting.memoizedCutRod();
+console.log(`\nOptimized revenue for i = n = 10 via top-down method memoizedCutRod: \$${optimalRevenue}`);
+optimalRevenue = rodCutting.bottomUpCutRod();
+console.log(`Optimized revenue for i = n = 10 via bottom-up method bottomUpCutRod: \$${optimalRevenue}`);
+let optimalRevenues = rodCutting.extendedBottomUpCutRod();
+let rStr = '', sStr = '';
+optimalRevenues[0].forEach((revenue) => rStr += String(revenue).padStart(padding));
+optimalRevenues[1].forEach((firstCut) => sStr += String(firstCut).padStart(padding));
+console.log(`\nOptimized revenue (r) and first-cut location (s) for i = 0...10:`);
+console.log('   i:', iStr);
+console.log('r[i]:', rStr);
+console.log('s[i]:', sStr);
