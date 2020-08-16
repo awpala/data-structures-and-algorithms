@@ -488,3 +488,129 @@ console.log('treeMaximum(root):', T.treeMaximum(T.root).key);
 console.log('treePredecessor(root):', T.treePredecessor(T.root).key);
 console.log('treePredecessor(root):', T.treeSuccessor(T.root).key);
 
+// CLRS Chapter 13 - Red-Black Tree
+const { RedBlackTree } = require('./data-structures/p326_RedBlackTree');
+
+console.log('\nChapter 13 - Red-Black Tree');
+
+T = new RedBlackTree();
+
+spacing = '      ';
+let finalTreeSize = 6;
+let maxCharWidth = 4;
+
+T.RBInsert(new RBTreeNode(41)); // cf. Exercise 13.3-2, p. 322
+console.log('\nafter RBInsert(41):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+T.RBInsert(new RBTreeNode(38));
+console.log('\nafter RBInsert(38):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}`
+console.log(nodeStr);
+T.RBInsert(new RBTreeNode(31));
+console.log('\nafter RBInsert(31):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}`;
+console.log(nodeStr);
+T.RBInsert(new RBTreeNode(12));
+console.log('\nafter RBInsert(12):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.left.key).padStart(maxCharWidth)}|${T.root.right.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.right.key).padStart(maxCharWidth)}|${T.root.right.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.right.key).padStart(maxCharWidth)}|${T.root.left.left.right.color[0]}`;
+console.log(nodeStr);
+T.RBInsert(new RBTreeNode(19));
+console.log('\nafter RBInsert(19):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.left.key).padStart(maxCharWidth)}|${T.root.right.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.right.key).padStart(maxCharWidth)}|${T.root.right.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.right.key).padStart(maxCharWidth)}|${T.root.left.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.left.key).padStart(maxCharWidth)}|${T.root.left.right.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.right.right.key).padStart(maxCharWidth)}|${T.root.left.right.right.color[0]}`;
+console.log(nodeStr);
+T.RBInsert(new RBTreeNode(8));
+console.log('\nafter RBInsert(8):');
+offset = Math.pow(2, Math.log2(Math.ceil(finalTreeSize - 1))) * 2;
+nodeStr = `${spacing.repeat(offset)}${String(T.root.key).padStart(maxCharWidth)}|${T.root.color[0]}`
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.key).padStart(maxCharWidth)}|${T.root.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.key).padStart(maxCharWidth)}|${T.root.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.key).padStart(maxCharWidth)}|${T.root.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.left.key).padStart(maxCharWidth)}|${T.root.right.left.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.right.right.key).padStart(maxCharWidth)}|${T.root.right.right.color[0]}`;
+console.log(nodeStr);
+offset /= 2;
+nodeStr = `${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.right.key).padStart(maxCharWidth)}|${T.root.left.left.right.color[0]}${spacing.repeat(offset * 2)}`
+        +`${String(T.root.left.right.left.key).padStart(maxCharWidth)}|${T.root.left.right.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.right.right.key).padStart(maxCharWidth)}|${T.root.left.right.right.color[0]}`;
+console.log(nodeStr);
+nodeStr = `${String(T.root.left.left.left.left.key).padStart(maxCharWidth)}|${T.root.left.left.left.left.color[0]}${spacing.repeat(offset)}`
+        +`${String(T.root.left.left.left.right.key).padStart(maxCharWidth)}|${T.root.left.left.left.right.color[0]}`;
+console.log(nodeStr);
