@@ -89,8 +89,8 @@ class RedBlackTree {
 
     RBInsert = (z) => {
         if (this.size === 0) { // N.B. guard against x.key undefined (see below note)
-            this.root = z;
             this.size++;
+            this.root = z;
             z.color = 'BLACK';
             z.p = this.nil;
             z.left = this.nil;
@@ -151,7 +151,7 @@ class RedBlackTree {
                     w = x.p.right; // case 1
                 }
                 if (w.left.color === 'BLACK' && w.right.color === 'BLACK') {
-                    w.color === 'RED'; // case 2
+                    w.color = 'RED'; // case 2
                     x = x.p; // case 2
                 } else {
                     if (w.right.color === 'BLACK') {
@@ -175,7 +175,7 @@ class RedBlackTree {
                     w = x.p.left; // case 1
                 }
                 if (w.right.color === 'BLACK' && w.left.color === 'BLACK') {
-                    w.color === 'RED'; // case 2
+                    w.color = 'RED'; // case 2
                     x = x.p; // case 2
                 } else {
                     if (w.left.color === 'BLACK') {
@@ -196,27 +196,20 @@ class RedBlackTree {
     }
 
     RBDelete = (z) => {
-        if (this.size === 1) { // delete out directly if only 1 tree node present
-            this.root = null;
-            this.size--;
-            z.left = undefined;
-            z.right = undefined;
-            z.p = undefined;
-            return;
-        }
         this.size--;
         let y = z;
         let yOriginalColor = y.color;
+        let x; // N.B. assigned value in if/else if/else
         if (z.left === this.nil) {
-            let x = z.right;
+            x = z.right;
             this.RBTransplant(z, z.right);
         } else if (z.right === this.nil) {
-            let x = z.left;
+            x = z.left;
             this.RBTransplant(z, z.left);
         } else {
             y = this.treeMinimum(z.right);
             yOriginalColor = y.color;
-            let x = y.right;
+            x = y.right;
             if (y.p === z) {
                 x.p = y;
             } else {

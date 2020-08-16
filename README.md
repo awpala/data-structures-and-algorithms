@@ -10,7 +10,7 @@ The objective of this repository is to gain insight into these fundamental conce
 
 ## Dependencies and Usage
 
-**JavaScript**: Requires Node.js v12 or higher. Run shell command `node javascript` in root directory for console outputs (cf. `javascript/index.js` for script code).
+**JavaScript**: Requires Node.js v12 or higher. Run shell command `node javascript` in root directory for console outputs (cf. `javascript/index.js` for output script code).
 
 ## Summary
 
