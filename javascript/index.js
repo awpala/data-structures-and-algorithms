@@ -719,7 +719,7 @@ console.log(nodeStr);
 console.log('\n\n|----- ALGORITHM DESIGN TECHNIQUES ----|');
 
 // CLRS Section 15.1 - Dynamic Programming: Rod Cutting
-const { RodCutting } = require('./algorithm-techniques/p369_DPRodCutting');
+const { RodCutting } = require('./algorithm-techniques/p369_RodCutting');
 
 console.log('\nSection 15.1 - Dynamic Programming: Rod Cutting');
 
@@ -758,3 +758,17 @@ console.log(`\nLongest common subsequence of ${X} and ${Y} is ${printLCS(b, X, X
 X = '10010101', Y = '010110110'; // cf. Exercise 15.4-1, p. 396
 [c, b] = LCSLength(X, Y);
 console.log(`\nLongest common subsequence of ${X} and ${Y} is ${improvedPrintLCS(c, X, Y)}`);
+
+// CLRS Section 16.1 - Greedy Algorithm: Activity Selector
+const { ActivitySelector } = require('./algorithm-techniques/p421_ActivitySelector');
+
+console.log('\nSection 16.1 - Greedy Algorithm: Activity Selector');
+
+let s = [1, 3, 0, 5, 3, 5, 6, 8, 8, 2, 12];
+let f = [4, 5, 6, 7, 9, 9, 10, 11, 12, 14, 16];
+
+let activitySelector = new ActivitySelector(s, f);
+let selected = activitySelector.greedyActivitySelector();
+
+console.log('\nMaximum-size subset of mutually compatible activities is:\n', selected);
+
