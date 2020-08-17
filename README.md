@@ -36,3 +36,4 @@ The objective of this repository is to gain insight into these fundamental conce
 | Data Structures | Binary Search Tree | Chapter 12 | (N/A) |
 | Data Structures | Red-Black Tree | Chapter 13 | (N/A) |
 | Algorithm Design Techniques | Dynamic Programming: Rod Cutting | Section 15.1 | (N/A) |
+| Algorithm Design Techniques | Dynamic Programming: Longest Common Subsequence | Section 15.4 | (N/A) |

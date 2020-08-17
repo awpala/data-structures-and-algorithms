@@ -745,3 +745,16 @@ console.log(`\nOptimized revenue (r) and first-cut location (s) for i = 0...10:`
 console.log('   i:', iStr);
 console.log('r[i]:', rStr);
 console.log('s[i]:', sStr);
+
+// CLRS Section 15.4 - Dynamic Programming: Longest Common Subsequence
+const { LCSLength, printLCS, improvedPrintLCS } = require('./algorithm-techniques/p395_LCS');
+
+console.log('\nSection 15.4 - Dynamic Programming: Longest Common Subsequence');
+
+let X = 'ABCBDAB', Y = 'BDCABA'; // cf. Figure 15.8, p. 395
+let [c, b] = LCSLength(X, Y);
+console.log(`\nLongest common subsequence of ${X} and ${Y} is ${printLCS(b, X, X.length - 1, Y.length - 1)}`);
+
+X = '10010101', Y = '010110110'; // cf. Exercise 15.4-1, p. 396
+[c, b] = LCSLength(X, Y);
+console.log(`\nLongest common subsequence of ${X} and ${Y} is ${improvedPrintLCS(c, X, Y)}`);
