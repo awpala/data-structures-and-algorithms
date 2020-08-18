@@ -38,3 +38,4 @@ The objective of this repository is to gain insight into these fundamental conce
 | Algorithm Design Techniques | Dynamic Programming: Rod Cutting | Section 15.1 | (N/A) |
 | Algorithm Design Techniques | Dynamic Programming: Longest Common Subsequence | Section 15.4 | (N/A) |
 | Algorithm Design Techniques | Greedy Algorithm: Activity Selector | Section 16.1 | (N/A) |
+| Algorithm Design Techniques | Dynamic Programming: 0-1 Knapsack Problem | Exercise 16.2-2 | (N/A) |
