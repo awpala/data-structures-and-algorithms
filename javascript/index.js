@@ -840,3 +840,120 @@ let huffman = new HuffmanCodes(C);
 let codes = huffman.huffman();
 console.log('\nEncodings via Huffman\'s algorithm:');
 huffman.printHuffman(codes);
+
+
+// ----- ADVANCED DATA STRUCTURES ----- //
+console.log('\n\n|----- ADVANCED DATA STRUCTURES ----|');
+
+// CLRS Section 21.3 - Disjoint Set with Union by Rank and Path Compression
+const { DisjointSet } = require('./data-structures/p571_DisjointSet');
+
+console.log('\nSection 21.3 - Disjoint Set with Union by Rank and Path Compression');
+
+let representativeMembers = []
+padding = 10;
+for (let i = 1; i <= 16; i++) { // cf. Exercise 21.2-2, p. 567
+    representativeMembers.push(i);
+}
+let disjointSet = new DisjointSet(representativeMembers);
+for(let i = 1; i <= 15; i += 2) {
+    disjointSet.union(disjointSet.S[i], disjointSet.S[i + 1]);
+}
+console.log('\nafter union(i, i + 1) for i = 1...15 by 2:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+for(let i = 1; i <= 13; i += 4) {
+    disjointSet.union(disjointSet.S[i], disjointSet.S[i + 2]);
+}
+console.log('\nafter union(i, i + 2) for i = 1...13 by 4:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.union(disjointSet.S[1], disjointSet.S[5]);
+disjointSet.union(disjointSet.S[11], disjointSet.S[13]);
+console.log('\nafter union(1, 5) and union(11, 13):\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.union(disjointSet.S[1], disjointSet.S[10]);
+console.log('\nafter union(1, 10):\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.findSet(disjointSet.S[2])
+console.log('\nafter findSet(2), no path-compression side-effect:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.findSet(disjointSet.S[9])
+console.log('\nafter findSet(9), no path-compression side-effect:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.findSet(disjointSet.S[6])
+console.log('\nafter findSet(6), has path-compression side-effect on i = 6:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+disjointSet.findSet(disjointSet.S[16])
+console.log('\nafter findSet(16), has path-compression side-effect on i = 13, 15, 16:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}

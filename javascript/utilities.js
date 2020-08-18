@@ -40,8 +40,18 @@ class CharNode {
     }
 }
 
+class SetNode {
+    constructor(key, p = this, rank = 0) {
+        this.key = key;
+        this.p = p;
+        this.rank = rank;
+    }
+}
+
 module.exports.A = A;
 module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
 module.exports.RBTreeNode = RBTreeNode;
 module.exports.CharNode = CharNode;
+module.exports.SetNode = SetNode;
+
