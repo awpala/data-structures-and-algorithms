@@ -3,7 +3,7 @@
 */
 
 class Knapsack01 {
-    constructor(v = [], w = [], W) {
+    constructor(v = [], w = [], W = 0) {
         this.v = {};
         v.forEach((value, index) => this.v[index + 1] = value);
         this.w = {};

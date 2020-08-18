@@ -68,7 +68,7 @@ const improvedPrintLCS = (c, X, Y) => {
             j--;
         }
     }
-    return lcs.split('').reverse().join('');
+    return lcs.split('').reverse().join(''); // reverse output string to correct order
 }
 
 module.exports.LCSLength = LCSLength;

@@ -3,7 +3,7 @@
 */
 
 class KnapsackFractional {
-    constructor(v = [], w = [], W) {
+    constructor(v = [], w = [], W = 0) {
         this.v = {};
         v.forEach((value, index) => this.v[index + 1] = value);
         this.w = {};
@@ -30,15 +30,15 @@ class KnapsackFractional {
 
         return (values.length % 2 !== 0) 
             ? values[midIndex]
-            : (values[midIndex - 1] + values[midIndex]) / 2;
+            : (values[midIndex - 1] + values[midIndex]) / 2.0;
     }
 
     knapsackFractional = (f = this.f, W = this.W) => {
-        let n = Object.keys(f).length;
+        const n = Object.keys(f).length;
 
         if (n === 1) {
             let value = 0;
-            for(let key in f) { // access the remaining value in f
+            for(let key in f) { // access the remaining key/value in f
                 if (this.w[key] > W) {
                     value = this.v[key] * (W / this.w[key]);
                 } else {
@@ -57,7 +57,7 @@ class KnapsackFractional {
         }
         if (aboveMedianW > W) {
             f = {};
-            for(let key in this.f) {
+            for(let key in this.f) { // extract keys having f > medianF
                 if (this.f[key] > medianF) {
                     f[key] = this.f[key];
                 }
@@ -65,7 +65,7 @@ class KnapsackFractional {
             return aboveMedianV + this.knapsackFractional(f, aboveMedianW);
         } else {
             f = {};
-            for(let key in this.f) {
+            for(let key in this.f) { // extract keys having f <= medianF
                 if (this.f[key] <= medianF) {
                     f[key] = this.f[key];
                 }
