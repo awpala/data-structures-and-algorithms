@@ -920,7 +920,7 @@ for(let i = 1; i <= 16; i++) {
     + `${ds.rank.toString().padEnd(padding)}`
     );
 }
-disjointSet.findSet(disjointSet.S[2])
+disjointSet.findSet(disjointSet.S[2]);
 console.log('\nafter findSet(2), no path-compression side-effect:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
@@ -932,7 +932,7 @@ for(let i = 1; i <= 16; i++) {
     + `${ds.rank.toString().padEnd(padding)}`
     );
 }
-disjointSet.findSet(disjointSet.S[9])
+disjointSet.findSet(disjointSet.S[9]);
 console.log('\nafter findSet(9), no path-compression side-effect:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
@@ -944,7 +944,7 @@ for(let i = 1; i <= 16; i++) {
     + `${ds.rank.toString().padEnd(padding)}`
     );
 }
-disjointSet.findSet(disjointSet.S[6])
+disjointSet.findSet(disjointSet.S[6]);
 console.log('\nafter findSet(6), has path-compression side-effect on i = 6:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
@@ -956,8 +956,22 @@ for(let i = 1; i <= 16; i++) {
     + `${ds.rank.toString().padEnd(padding)}`
     );
 }
-disjointSet.findSet(disjointSet.S[16])
+disjointSet.findSet(disjointSet.S[16]);
 console.log('\nafter findSet(16), has path-compression side-effect on i = 13, 15, 16:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
+for(let i = 1; i <= 16; i++) {
+    disjointSet.findSet(disjointSet.S[i]);
+}
+console.log('\nafter findSet\'s on all members, path-compression side-effect causes all i\'s to have x[i].p = 1:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
 for(let i = 1; i <= 16; i++) {
