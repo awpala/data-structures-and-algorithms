@@ -772,3 +772,29 @@ let selected = activitySelector.greedyActivitySelector();
 
 console.log('\nMaximum-size subset of mutually compatible activities is:\n', selected);
 
+// CLRS Exercise 16.2-2 - Dynamic Programming: 0-1 Knapsack Problem
+const { Knapsack01 } = require('./algorithm-techniques/p427_Knapsack01');
+
+console.log('\nExercise 16.2-2 - Dynamic Programming: 0-1 Knapsack Problem');
+
+let v = [60, 100, 120]; // cf. Figure 16.2, p. 427
+let w = [10, 20, 30];
+let W = 50;
+
+console.log('\nKnapsack problem valuables:');
+
+padding = 6;
+vStr = '';
+v.forEach((value) => vStr += `\$${value}`.padStart(padding));
+wStr = '';
+w.forEach((weight) => wStr += `${weight}`.padStart(padding));
+iStr = '';
+w.forEach((_, index) => iStr += `${index + 1}`.padStart(padding));
+console.log('   i:', iStr);
+console.log('v[i]:', vStr);
+console.log('w[i]:', wStr);
+
+let knapsack = new Knapsack01(v, w, W);
+let maxValue = knapsack.knapsack01();
+console.log(`\nMaximized value of items in 0-1 knapsack with weight limit of ${W}: \$${maxValue}`);
+
