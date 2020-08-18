@@ -36,13 +36,13 @@ class HuffmanCodes {
         return this.extractMin();
     }
 
-    printHuffman = (z, dir = null, enc = '') => { // N.B. preorder traversal
+    printHuffman = (z, dir = null, encodingStr = '') => { // N.B. preorder traversal
         if (z !== null) {
             if(z.char !== null) {
-                console.log(`${z.char}: ${enc}`);
+                console.log(`${z.char}: ${encodingStr}`);
             }
-            this.printHuffman(z.left, 'left', `${enc}0`);
-            this.printHuffman(z.right, 'right', `${enc}1`);
+            this.printHuffman(z.left, 'left', `${encodingStr}0`);
+            this.printHuffman(z.right, 'right', `${encodingStr}1`);
         }
     }
 }

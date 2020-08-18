@@ -838,5 +838,5 @@ console.log('\nCharacter frequencies:\n', C);
 
 let huffman = new HuffmanCodes(C);
 let codes = huffman.huffman();
-console.log('\nEncodings via Huffman algorithm:');
+console.log('\nEncodings via Huffman\'s algorithm:');
 huffman.printHuffman(codes);
