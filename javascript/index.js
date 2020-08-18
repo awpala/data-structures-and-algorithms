@@ -851,7 +851,6 @@ const { DisjointSet } = require('./data-structures/p571_DisjointSet');
 console.log('\nSection 21.3 - Disjoint Set with Union by Rank and Path Compression');
 
 let representativeMembers = []
-padding = 10;
 for (let i = 1; i <= 16; i++) { // cf. Exercise 21.2-2, p. 567
     representativeMembers.push(i);
 }
@@ -859,6 +858,7 @@ let disjointSet = new DisjointSet(representativeMembers);
 for(let i = 1; i <= 15; i += 2) {
     disjointSet.union(disjointSet.S[i], disjointSet.S[i + 1]);
 }
+padding = 10;
 console.log('\nafter union(i, i + 1) for i = 1...15 by 2:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
