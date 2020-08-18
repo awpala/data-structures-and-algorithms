@@ -47,10 +47,10 @@ class KnapsackFractional {
             }
             return value;
         }
-        const median = this.median(f);
+        const medianF = this.median(f);
         let aboveMedianW = 0, aboveMedianV = 0;
         for(let key in f) {
-            if (f[key] > median) {
+            if (f[key] > medianF) {
                 aboveMedianW += this.w[key];
                 aboveMedianV += this.v[key];
             }
@@ -58,7 +58,7 @@ class KnapsackFractional {
         if (aboveMedianW > W) {
             f = {};
             for(let key in this.f) {
-                if (this.f[key] > median) {
+                if (this.f[key] > medianF) {
                     f[key] = this.f[key];
                 }
             }
@@ -66,7 +66,7 @@ class KnapsackFractional {
         } else {
             f = {};
             for(let key in this.f) {
-                if (this.f[key] <= median) {
+                if (this.f[key] <= medianF) {
                     f[key] = this.f[key];
                 }
             }
