@@ -33,10 +33,10 @@ class DisjointSet {
         // }
 
         /* 
+            -- below is different from textbook's algorithm 
             cf. https://ocw.mit.edu/courses/
             electrical-engineering-and-computer-science/
             6-046j-design-and-analysis-of-algorithms-spring-2012/lecture-notes/MIT6_046JS12_lec16.pdf
-            -- below is different from textbook's algorithm 
         */
 
         if (x.rank === y.rank) {
