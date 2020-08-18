@@ -855,10 +855,21 @@ for (let i = 1; i <= 16; i++) { // cf. Exercise 21.2-2, p. 567
     representativeMembers.push(i);
 }
 let disjointSet = new DisjointSet(representativeMembers);
+padding = 10;
+console.log('\ninitial set:\n');
+console.log('x[i]      x[i].p    x[i].rank');
+console.log('-'.repeat(padding * 3));
+for(let i = 1; i <= 16; i++) {
+    const ds = disjointSet.S[i];
+    console.log(
+    `${ds.key.toString().padEnd(padding)}`
+    + `${ds.p.key.toString().padEnd(padding)}`
+    + `${ds.rank.toString().padEnd(padding)}`
+    );
+}
 for(let i = 1; i <= 15; i += 2) {
     disjointSet.union(disjointSet.S[i], disjointSet.S[i + 1]);
 }
-padding = 10;
 console.log('\nafter union(i, i + 1) for i = 1...15 by 2:\n');
 console.log('x[i]      x[i].p    x[i].rank');
 console.log('-'.repeat(padding * 3));
