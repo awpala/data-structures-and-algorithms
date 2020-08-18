@@ -779,14 +779,15 @@ console.log('\nExercise 16.2-2 - Dynamic Programming: 0-1 Knapsack Problem');
 
 let v = [60, 100, 120]; // cf. Figure 16.2, p. 427
 let w = [10, 20, 30];
+let n = v.length;
 let W = 50;
 
-console.log('\nKnapsack problem valuables:');
+console.log('\nKnapsack problem values (v) and weights (w) for items (i):');
 
 padding = 6;
-vStr = '';
+let vStr = '';
 v.forEach((value) => vStr += `\$${value}`.padStart(padding));
-wStr = '';
+let wStr = '';
 w.forEach((weight) => wStr += `${weight}`.padStart(padding));
 iStr = '';
 w.forEach((_, index) => iStr += `${index + 1}`.padStart(padding));
@@ -796,5 +797,25 @@ console.log('w[i]:', wStr);
 
 let knapsack = new Knapsack01(v, w, W);
 let maxValue = knapsack.knapsack01();
-console.log(`\nMaximized value of items in 0-1 knapsack with weight limit of ${W}: \$${maxValue}`);
+console.log(`\nMaximized value of ${n} items in 0-1 knapsack with weight limit of ${W}: \$${maxValue}`);
 
+// CLRS Exercise 16.2-6 - Greedy Algorithm: Fractional Knapsack Problem
+const { KnapsackFractional } = require('./algorithm-techniques/p428_KnapsackFractional');
+
+console.log('\nExercise 16.2-6 - Greedy Algorithm: Fractional Knapsack Problem');
+
+knapsack = new KnapsackFractional(v, w, W);
+
+let fStr = '';
+for(let key in knapsack.f) {
+    fStr += `${knapsack.f[key]}`.padStart(padding);
+}
+
+console.log('\nKnapsack problem values (v), weights (w), and fractional values (f) for items (i):');
+console.log('   i:', iStr);
+console.log('v[i]:', vStr);
+console.log('w[i]:', wStr);
+console.log('f[i]:', fStr);
+
+maxValue = knapsack.knapsackFractional();
+console.log(`\nMaximized value of ${n} items in fractional knapsack with weight limit of ${W}: \$${maxValue}`);
