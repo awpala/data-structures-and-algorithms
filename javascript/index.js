@@ -819,3 +819,24 @@ console.log('f[i]:', fStr);
 
 maxValue = knapsack.knapsackFractional();
 console.log(`\nMaximized value of ${n} items in fractional knapsack with weight limit of ${W}: \$${maxValue}`);
+
+// CLRS Section 16.3 - Greedy Algorithm: Huffman Codes
+const { HuffmanCodes } = require('./algorithm-techniques/p431_HuffmanCodes');
+
+console.log('\nSection 16.3 - Greedy Algorithm: Huffman Codes');
+
+let C = { // cf. Figure 16.3, p. 429
+    'a': 45,
+    'b': 13,
+    'c': 12,
+    'd': 16,
+    'e': 9,
+    'f': 5
+}
+
+console.log('\nCharacter frequencies:\n', C);
+
+let huffman = new HuffmanCodes(C);
+let codes = huffman.huffman();
+console.log('\nEncodings via Huffman algorithm:');
+huffman.printHuffman(codes);
