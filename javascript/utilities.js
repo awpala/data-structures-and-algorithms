@@ -91,6 +91,16 @@ class GraphVertexBFS extends GraphVertex {
     }
 }
 
+class GraphVertexDFS extends GraphVertex {
+    constructor(key = null, adjacentVertices = {}, color = 'WHITE', pi = null, d = null, f = null) {
+        super(key, adjacentVertices);
+        this.color = color;
+        this.pi = pi;
+        this.d = d;
+        this.f = f;
+    }
+}
+
 module.exports.A = A;
 module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
@@ -100,4 +110,4 @@ module.exports.SetNode = SetNode;
 module.exports.GraphVertex = GraphVertex;
 module.exports.UnweightedGraph = UnweightedGraph;
 module.exports.GraphVertexBFS = GraphVertexBFS;
-
+module.exports.GraphVertexDFS = GraphVertexDFS;

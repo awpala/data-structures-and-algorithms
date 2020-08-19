@@ -1019,9 +1019,60 @@ let d = {};
 for(let v in G.G) {
     d[v] = G.G[v].d;
 }
-console.log(`\nBreadth-first tree after calling bfs(G, 's'):\n`);
+console.log(`\nBreadth-first tree after calling BFS(G, 's'):\n`);
 console.log(
     `r,${d['r']} - s,${d['s']}   t,${d['t']} - u,${d['u']}`
 + `\n|     |   /`
 + `\nv,${d['v']}   w,${d['w']} - x,${d['x']} - y,${d['y']}`
+);
+
+// CLRS Section 22.3 - Depth-First Search
+const { GraphVertexDFS } = require('./utilities');
+const { DFS } = require('./graph-algorithms/p604_DFS');
+
+console.log('\nSection 22.3 - Depth-First Search');
+
+G = new UnweightedGraph();
+G.addDirectedEdge(new GraphVertexDFS('u'), new GraphVertexDFS('v')); // cf. Figure 22.4, p. 605
+G.addDirectedEdge(G.G['v'], new GraphVertexDFS('y'));
+G.addDirectedEdge(G.G['y'], new GraphVertexDFS('x'));
+G.addDirectedEdge(G.G['u'], G.G['x']);
+G.addDirectedEdge(G.G['x'], G.G['v']);
+G.addDirectedEdge(new GraphVertexDFS('w'), new GraphVertexDFS('z'))
+G.addDirectedEdge(G.G['w'], G.G['y']);
+G.addDirectedEdge(G.G['z'], G.G['z']);
+
+let arrows = {
+    u: '\u2b61',
+    d: '\u2b63',
+    r: '\u2b62',
+    l: '\u2b60',
+    ur: '\u2b67',
+    dr: '\u2b68',
+    ul: '\u2b66',
+    dl: '\u2b69',
+    cw: '\u27f3',
+    ccw: '\u27f2'
+}
+
+console.log('\nInitial directed graph:\n');
+console.log(
+    `u ${arrows.r} v   w`
++ `\n${arrows.d} ${arrows.ur} ${arrows.d} ${arrows.dl} ${arrows.d}`
++ `\nx ${arrows.l} y   z${arrows.ccw}`
+);
+
+let dfs = new DFS();
+dfs.DFS(G.G);
+
+d = {}, f = {};
+for(let v in G.G) {
+    d[v] = G.G[v].d;
+    f[v] = G.G[v].f;
+}
+console.log(`\nDepth-first tree after calling DFS(G):\n`);
+console.log(
+    `u|${d['u']},${f['u']} ${arrows.r} v|${d['v']},${f['v']}   w|${d['w']},${f['w']}`
++ `\n        ${arrows.d}       ${arrows.d}`
++ `\nx|${d['x']},${f['x']} ${arrows.l} y|${d['y']},${f['y']}   z|${d['z']},${f['z']}`
 );

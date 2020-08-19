@@ -43,3 +43,4 @@ The objective of this repository is to gain insight into these fundamental conce
 | Algorithm Design Techniques | Greedy Algorithm: Huffman Codes| Section 16.3 | Min Priority Queue |
 | Advanced Data Structures | Disjoint Set with Union by Rank and Path Compression | Section 21.3  | (N/A) |
 | Graph Algorithms | Breadth-First Search | Section 22.2 | Queue |
+| Graph Algorithms | Depth-First Search | Section 22.3 | (N/A) |

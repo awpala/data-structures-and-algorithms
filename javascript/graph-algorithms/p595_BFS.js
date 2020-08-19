@@ -16,7 +16,7 @@ class BFS {
     }
 
     BFS = (G, s) => {
-        for(let v in G) {
+        for (let v in G) {
             if (G[v] !== s) {
                 G[v].color = 'WHITE';
                 G[v].d = Number.POSITIVE_INFINITY;
