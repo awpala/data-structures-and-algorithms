@@ -25,7 +25,7 @@ class HuffmanCodes {
 
     huffman = (C = this.C) => {
         const n = Object.keys(C).length;
-        // N.B. Q initialized in constructor
+        // N.B. this.Q initialized in constructor
         for (let i = 1; i < n; i++) {
             let z = new CharNode(null, null);
             let x = z.left = this.extractMin();

@@ -982,3 +982,46 @@ for(let i = 1; i <= 16; i++) {
     + `${ds.rank.toString().padEnd(padding)}`
     );
 }
+
+
+// ----- GRAPH ALGORITHMS ----- //
+console.log('\n\n|----- GRAPH ALGORITHMS ----|');
+
+// CLRS Section 22.2 - Breadth-First Search
+const { UnweightedGraph, GraphVertexBFS } = require('./utilities');
+const { BFS } = require('./graph-algorithms/p595_BFS');
+
+console.log('\nSection 22.2 - Breadth-First Search');
+
+let G = new UnweightedGraph();
+G.addUndirectedEdge(new GraphVertexBFS('v'), new GraphVertexBFS('r')); // cf. Figure 22.3, p. 596
+G.addUndirectedEdge(G.G['r'], new GraphVertexBFS('s'));
+G.addUndirectedEdge(G.G['s'], new GraphVertexBFS('w'));
+G.addUndirectedEdge(G.G['w'], new GraphVertexBFS('t'));
+G.addUndirectedEdge(G.G['w'], new GraphVertexBFS('x'));
+G.addUndirectedEdge(G.G['x'], G.G['t']);
+G.addUndirectedEdge(G.G['x'], new GraphVertexBFS('u'));
+G.addUndirectedEdge(G.G['x'], new GraphVertexBFS('y'));
+G.addUndirectedEdge(G.G['u'], G.G['t']);
+G.addUndirectedEdge(G.G['u'], G.G['y']);
+
+console.log('\nInitial undirected graph:\n');
+console.log(
+    `r - s   t - u`
++ `\n|   | / | / |`
++ `\nv   w - x - y`
+);
+
+let bfs = new BFS();
+bfs.BFS(G.G, G.G['s']);
+
+let d = {};
+for(let v in G.G) {
+    d[v] = G.G[v].d;
+}
+console.log(`\nBreadth-first tree after calling bfs(G, 's'):\n`);
+console.log(
+    `r,${d['r']} - s,${d['s']}   t,${d['t']} - u,${d['u']}`
++ `\n|     |   /`
++ `\nv,${d['v']}   w,${d['w']} - x,${d['x']} - y,${d['y']}`
+);
