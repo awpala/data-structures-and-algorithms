@@ -4,7 +4,7 @@
 */
 
 // import utilities (ADTs)
-let { A, ListNode, TreeNode, RBTreeNode } = require('./utilities');
+let { A, ListNode, TreeNode, RBTreeNode, GraphVertex } = require('./utilities');
 
 
 // ----- SORTING ALGORITMS ----- //
@@ -995,15 +995,15 @@ console.log('\nSection 22.2 - Breadth-First Search');
 
 let G = new UnweightedGraph();
 G.addUndirectedEdge(new GraphVertexBFS('v'), new GraphVertexBFS('r')); // cf. Figure 22.3, p. 596
-G.addUndirectedEdge(G.G['r'], new GraphVertexBFS('s'));
-G.addUndirectedEdge(G.G['s'], new GraphVertexBFS('w'));
-G.addUndirectedEdge(G.G['w'], new GraphVertexBFS('t'));
-G.addUndirectedEdge(G.G['w'], new GraphVertexBFS('x'));
-G.addUndirectedEdge(G.G['x'], G.G['t']);
-G.addUndirectedEdge(G.G['x'], new GraphVertexBFS('u'));
-G.addUndirectedEdge(G.G['x'], new GraphVertexBFS('y'));
-G.addUndirectedEdge(G.G['u'], G.G['t']);
-G.addUndirectedEdge(G.G['u'], G.G['y']);
+G.addUndirectedEdge(G.V['r'], new GraphVertexBFS('s'));
+G.addUndirectedEdge(G.V['s'], new GraphVertexBFS('w'));
+G.addUndirectedEdge(G.V['w'], new GraphVertexBFS('t'));
+G.addUndirectedEdge(G.V['w'], new GraphVertexBFS('x'));
+G.addUndirectedEdge(G.V['x'], G.V['t']);
+G.addUndirectedEdge(G.V['x'], new GraphVertexBFS('u'));
+G.addUndirectedEdge(G.V['x'], new GraphVertexBFS('y'));
+G.addUndirectedEdge(G.V['u'], G.V['t']);
+G.addUndirectedEdge(G.V['u'], G.V['y']);
 
 console.log('\nInitial undirected graph:\n');
 console.log(
@@ -1013,11 +1013,11 @@ console.log(
 );
 
 let bfs = new BFS();
-bfs.BFS(G.G, G.G['s']);
+bfs.BFS(G.V, G.V['s']);
 
 let d = {};
-for(let v in G.G) {
-    d[v] = G.G[v].d;
+for(let v in G.V) {
+    d[v] = G.V[v].d;
 }
 console.log(`\nBreadth-first tree after calling BFS(G, 's'):\n`);
 console.log(
@@ -1034,13 +1034,13 @@ console.log('\nSection 22.3 - Depth-First Search');
 
 G = new UnweightedGraph();
 G.addDirectedEdge(new GraphVertexDFS('u'), new GraphVertexDFS('v')); // cf. Figure 22.4, p. 605
-G.addDirectedEdge(G.G['v'], new GraphVertexDFS('y'));
-G.addDirectedEdge(G.G['y'], new GraphVertexDFS('x'));
-G.addDirectedEdge(G.G['u'], G.G['x']);
-G.addDirectedEdge(G.G['x'], G.G['v']);
+G.addDirectedEdge(G.V['v'], new GraphVertexDFS('y'));
+G.addDirectedEdge(G.V['y'], new GraphVertexDFS('x'));
+G.addDirectedEdge(G.V['u'], G.V['x']);
+G.addDirectedEdge(G.V['x'], G.V['v']);
 G.addDirectedEdge(new GraphVertexDFS('w'), new GraphVertexDFS('z'))
-G.addDirectedEdge(G.G['w'], G.G['y']);
-G.addDirectedEdge(G.G['z'], G.G['z']);
+G.addDirectedEdge(G.V['w'], G.V['y']);
+G.addDirectedEdge(G.V['z'], G.V['z']);
 
 let arrows = {
     u: '\u2b61',
@@ -1063,16 +1063,67 @@ console.log(
 );
 
 let dfs = new DFS();
-dfs.DFS(G.G);
+dfs.DFS(G.V);
 
 d = {}, f = {};
-for(let v in G.G) {
-    d[v] = G.G[v].d;
-    f[v] = G.G[v].f;
+for(let v in G.V) {
+    d[v] = G.V[v].d;
+    f[v] = G.V[v].f;
 }
-console.log(`\nDepth-first tree after calling DFS(G):\n`);
+console.log(`\nDepth-first forest after calling DFS(G):\n`);
 console.log(
     `u|${d['u']},${f['u']} ${arrows.r} v|${d['v']},${f['v']}   w|${d['w']},${f['w']}`
 + `\n        ${arrows.d}       ${arrows.d}`
 + `\nx|${d['x']},${f['x']} ${arrows.l} y|${d['y']},${f['y']}   z|${d['z']},${f['z']}`
+);
+
+// CLRS Section 23.2 - Kruskal's Algorithm (Minimum Spanning Tree)
+const { GraphVertexMST, WeightedGraphMST } = require('./utilities');
+const { KruskalMST } = require('./graph-algorithms/p631_Kruskal');
+
+console.log('\nSection 23.2 - Kruskal\'s Algorithm (Minimum Spanning Tree)');
+
+G = new WeightedGraphMST();
+
+G.addWeightedEdge(new GraphVertexMST('a'), new GraphVertexMST('b'), 4); // cf. Figure 23.4, p. 632
+G.addWeightedEdge(new GraphVertexMST('h'), G.V['a'], 8);
+G.addWeightedEdge(G.V['b'], G.V['h'], 11);
+G.addWeightedEdge(new GraphVertexMST('i'), new GraphVertexMST('c'), 2);
+G.addWeightedEdge(G.V['i'], new GraphVertexMST('g'), 6);
+G.addWeightedEdge(G.V['b'], G.V['c'], 8);
+G.addWeightedEdge(G.V['i'], G.V['h'], 7);
+G.addWeightedEdge(G.V['g'], G.V['h'], 1);
+G.addWeightedEdge(new GraphVertexMST('d'), new GraphVertexMST('e'), 9);
+G.addWeightedEdge(new GraphVertexMST('f'), G.V['c'], 4);
+G.addWeightedEdge(G.V['f'], G.V['g'], 2);
+G.addWeightedEdge(G.V['c'], G.V['d'], 7);
+G.addWeightedEdge(G.V['f'], G.V['d'], 14);
+G.addWeightedEdge(G.V['f'], G.V['e'], 10);
+
+
+console.log('\nInitial undirected weighted graph:\n');
+console.log(
+    `      b  -8-  c -7- d`
++ `\n  4/  |    /2   \\   |  \\9`
++ `\na   11|   i      \\4 |14   e`
++ `\n  8\\  | 7/ \\6     \\ |  /10`
++ `\n      h  -1-  g -2- f`
+);
+
+let mst = KruskalMST(G);
+// console.log(mst);
+console.log(`\nMinimum-spanning tree after calling DFS(G), with minimized total weight of ${mst.totalWeight}:\n`);
+console.log('edge   | weight');
+console.log('-------|-------');
+for(el of mst.edgesMST) {
+    const vertices = el.e.vertices;
+    console.log(`(${vertices.u.name}, ${vertices.v.name}) | ${el.e.weight}`);
+}
+console.log();
+console.log(
+    `      b      c -7- d`
++ `\n  4/      /2   \\    \\9`
++ `\na        i      \\4    e`
++ `\n  8\\             \\`
++ `\n      h -1- g -2- f`
 );

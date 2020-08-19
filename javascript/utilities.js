@@ -56,29 +56,29 @@ class GraphVertex {
 }
 
 class UnweightedGraph {
-    constructor(G = {}) {
-        this.G = {};
+    constructor(V = {}) {
+        this.V = {};
     }
 
     addUndirectedEdge = (u, v) => {
-        if(!this.G[u.key]) {
-            this.G[u.key] = u;
+        if(!this.V[u.key]) {
+            this.V[u.key] = u;
         }
-        if(!this.G[v.key]) {
-            this.G[v.key] = v;
+        if(!this.V[v.key]) {
+            this.V[v.key] = v;
         }
-        this.G[u.key].adjacentVertices[v.key] = v;
-        this.G[v.key].adjacentVertices[u.key] = u;
+        this.V[u.key].adjacentVertices[v.key] = v;
+        this.V[v.key].adjacentVertices[u.key] = u;
     }
 
     addDirectedEdge = (u, v) => {
-        if(!this.G[u.key]) {
-            this.G[u.key] = u;
+        if(!this.V[u.key]) {
+            this.V[u.key] = u;
         }
-        if(!this.G[v.key]) {
-            this.G[v.key] = v;
+        if(!this.V[v.key]) {
+            this.V[v.key] = v;
         }
-        this.G[u.key].adjacentVertices[v.key] = v;
+        this.V[u.key].adjacentVertices[v.key] = v;
     }
 }
 
@@ -101,6 +101,71 @@ class GraphVertexDFS extends GraphVertex {
     }
 }
 
+class GraphVertexMST {
+    constructor(name = null, adjacentVertices = {}) {
+        this.name = name;
+        this.adjacentVertices = adjacentVertices;
+    }
+}
+
+class GraphEdgeMST {
+    constructor(u = null, v = null, w = 0) {
+        this.e = {
+            vertices: { u, v },
+            weight: w
+        };
+    }
+}
+
+class WeightedGraphMST {
+    constructor(V = {}, E = []) {
+        this.V = V;
+        this.E = E;
+    }
+
+    addWeightedEdge = (u, v, w) => {
+        if(!this.V[u.name]) {
+            this.V[u.name] = u;
+            // if(this.V[v.name]) {
+            //     this.E.push(new GraphEdgeMST(u, v, w));
+            // }
+        }
+        if(!this.V[v.name]) {
+            this.V[v.name] = v;
+            // if(this.V[u.name]) {
+            //     this.E.push(new GraphEdgeMST(u, v, w));
+            // }
+        }
+        // if((!this.V[v.name] && !this.V[u.name]) 
+        //     || (this.V[v.name] && this.V[u.name])
+        // ) 
+        // if(this.V[v.name] && this.V[u.name]);
+        // {
+        //     this.E.push(new GraphEdgeMST(u, v, w));
+
+        //     this.V[u.name].adjacentVertices[v.name] = { 
+        //         // vertex: v,
+        //         w: this.E[this.E.length - 1]
+        //     };
+        //     this.V[v.name].adjacentVertices[u.name] = {
+        //         // vertex: u,
+        //         w: this.E[this.E.length - 1]
+        //     };
+        // }
+
+        this.E.push(new GraphEdgeMST(u, v, w));
+
+        this.V[u.name].adjacentVertices[v.name] = { 
+            // vertex: v,
+            w: this.E[this.E.length - 1]
+        };
+        this.V[v.name].adjacentVertices[u.name] = {
+            // vertex: u,
+            w: this.E[this.E.length - 1]
+        };
+    }
+}
+
 module.exports.A = A;
 module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
@@ -111,3 +176,6 @@ module.exports.GraphVertex = GraphVertex;
 module.exports.UnweightedGraph = UnweightedGraph;
 module.exports.GraphVertexBFS = GraphVertexBFS;
 module.exports.GraphVertexDFS = GraphVertexDFS;
+module.exports.GraphVertexMST = GraphVertexMST;
+module.exports.GraphEdgeMST = GraphEdgeMST;
+module.exports.WeightedGraphMST = WeightedGraphMST;
