@@ -7,6 +7,14 @@ class Prim {
         this.Q = Q;
     }
 
+    // Min PQ Operations
+    // N.B. These approximate the behavior of a min PQ, as by
+    // perfoming a sort with respect to key, the minimum-value key
+    // is always extracted by extractMin(), as in a min PQ. A more
+    // rigorous implementation would involve modifying the class
+    // MinPQ to work with GraphVertexPrim.key values rather than
+    // simple primitive number values.
+
     buildMinPQ = (G) => {
         for (let vertex in G.V) {
             this.Q.push(G.V[vertex]);

@@ -45,4 +45,4 @@ The objective of this repository is to gain insight into these fundamental conce
 | Graph Algorithms | Breadth-First Search | Section 22.2 | Queue |
 | Graph Algorithms | Depth-First Search | Section 22.3 | (N/A) |
 | Graph Algorithms | Kruskal's Algorithm (Minimum Spanning Tree) | Section 23.2 | Disjoint Set |
-| Graph Algorithms | Prim's Algorithm (Minimum Spanning Tree) | Section 23.3 | Disjoint Set |
+| Graph Algorithms | Prim's Algorithm (Minimum Spanning Tree) | Section 23.3 | Min Priority Queue |

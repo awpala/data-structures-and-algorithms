@@ -2,7 +2,7 @@
     CLRS Section 16.3, p. 431
 */
 
-let { CharNode } = require('../utilities');
+const { CharNode } = require('../utilities');
 
 class HuffmanCodes {
     constructor(C = {}) {
@@ -13,6 +13,14 @@ class HuffmanCodes {
             this.insert(new CharNode(char, C[char]))
         }
     }
+
+    // Min PQ Operations
+    // N.B. These approximate the behavior of a min PQ, as by
+    // perfoming a sort with respect to freq, the minimum-value freq
+    // is always extracted by extractMin(), as in a min PQ. A more
+    // rigorous implementation would involve modifying the class
+    // MinPQ to work with CharNode.freq values rather than
+    // simple primitive number values.
 
     insert = (z, Q = this.Q) => {
         Q.splice(0, 0, z);
@@ -36,13 +44,13 @@ class HuffmanCodes {
         return this.extractMin();
     }
 
-    printHuffman = (z, dir = null, encodingStr = '') => { // N.B. preorder traversal
+    printHuffman = (z, encodingStr = '') => { // N.B. preorder traversal
         if (z !== null) {
             if(z.char !== null) {
                 console.log(`${z.char}: ${encodingStr}`);
             }
-            this.printHuffman(z.left, 'left', `${encodingStr}0`);
-            this.printHuffman(z.right, 'right', `${encodingStr}1`);
+            this.printHuffman(z.left, `${encodingStr}0`);
+            this.printHuffman(z.right, `${encodingStr}1`);
         }
     }
 }
