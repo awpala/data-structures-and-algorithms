@@ -50,8 +50,8 @@ const printHuffman = (z, encodingStr = '') => { // N.B. preorder traversal
         if(z.char !== null) {
             console.log(`${z.char}: ${encodingStr}`);
         }
-        this.printHuffman(z.left, `${encodingStr}0`);
-        this.printHuffman(z.right, `${encodingStr}1`);
+        printHuffman(z.left, `${encodingStr}0`);
+        printHuffman(z.right, `${encodingStr}1`);
     }
 }
 
