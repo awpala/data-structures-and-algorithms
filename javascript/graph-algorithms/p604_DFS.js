@@ -11,8 +11,9 @@ class DFS {
         this.time++; // white vertex u has just been discovered
         u.d = this.time;
         u.color = 'GRAY';
-        for (let v in u.adjacentVertices) { // explore edge (u, v)
-            const vertex = u.adjacentVertices[v];
+        const adj = u.adjacentVertices;
+        for (let v in adj) { // explore edge (u, v)
+            const vertex = adj[v];
             if (vertex.color === 'WHITE') {
                 vertex.pi = u;
                 this.DFSVisit(G, vertex);
