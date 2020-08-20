@@ -108,15 +108,6 @@ class GraphVertexMST {
     }
 }
 
-class GraphEdgeMST {
-    constructor(u = null, v = null, w = 0) {
-        this.e = {
-            vertices: { u, v },
-            weight: w
-        };
-    }
-}
-
 class WeightedGraphMST {
     constructor(V = {}, E = []) {
         this.V = V;
@@ -130,7 +121,11 @@ class WeightedGraphMST {
         if(!this.V[v.name]) {
             this.V[v.name] = v;
         }
-        this.E.push(new GraphEdgeMST(u, v, w));
+        this.E.push({
+            vertices: { u, v },
+            weight: w
+        });
+
         this.V[u.name].adjacentVertices[v.name] = { 
             w: this.E[this.E.length - 1]
         };
@@ -160,6 +155,5 @@ module.exports.UnweightedGraph = UnweightedGraph;
 module.exports.GraphVertexBFS = GraphVertexBFS;
 module.exports.GraphVertexDFS = GraphVertexDFS;
 module.exports.GraphVertexMST = GraphVertexMST;
-module.exports.GraphEdgeMST = GraphEdgeMST;
 module.exports.WeightedGraphMST = WeightedGraphMST;
 module.exports.GraphVertexPrim = GraphVertexPrim;

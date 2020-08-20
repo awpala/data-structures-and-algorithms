@@ -48,14 +48,14 @@ const KruskalMST = (G) => {
         edgesMST: []
     };
     let ds = new DisjointSetKruskal(G.V);
-    G.E.sort((a, b) => a.e.weight - b.e.weight);
+    G.E.sort((a, b) => a.weight - b.weight);
     for (let edge of G.E) {
-        const vertices = edge.e.vertices;
+        const vertices = edge.vertices;
         const u = ds.S[vertices.u.name];
         const v = ds.S[vertices.v.name];
         if (ds.findSet(u) !== ds.findSet(v)) {
             A.edgesMST.push(edge);
-            A.totalWeight += edge.e.weight;
+            A.totalWeight += edge.weight;
             ds.union(u, v);
         }
     }
