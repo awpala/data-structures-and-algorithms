@@ -126,43 +126,26 @@ class WeightedGraphMST {
     addWeightedEdge = (u, v, w) => {
         if(!this.V[u.name]) {
             this.V[u.name] = u;
-            // if(this.V[v.name]) {
-            //     this.E.push(new GraphEdgeMST(u, v, w));
-            // }
         }
         if(!this.V[v.name]) {
             this.V[v.name] = v;
-            // if(this.V[u.name]) {
-            //     this.E.push(new GraphEdgeMST(u, v, w));
-            // }
         }
-        // if((!this.V[v.name] && !this.V[u.name]) 
-        //     || (this.V[v.name] && this.V[u.name])
-        // ) 
-        // if(this.V[v.name] && this.V[u.name]);
-        // {
-        //     this.E.push(new GraphEdgeMST(u, v, w));
-
-        //     this.V[u.name].adjacentVertices[v.name] = { 
-        //         // vertex: v,
-        //         w: this.E[this.E.length - 1]
-        //     };
-        //     this.V[v.name].adjacentVertices[u.name] = {
-        //         // vertex: u,
-        //         w: this.E[this.E.length - 1]
-        //     };
-        // }
-
         this.E.push(new GraphEdgeMST(u, v, w));
-
         this.V[u.name].adjacentVertices[v.name] = { 
-            // vertex: v,
             w: this.E[this.E.length - 1]
         };
         this.V[v.name].adjacentVertices[u.name] = {
-            // vertex: u,
             w: this.E[this.E.length - 1]
         };
+    }
+}
+
+class GraphVertexPrim extends GraphVertexMST {
+    constructor(name = null, adjacentVertices = {}, key = Number.POSITIVE_INFINITY, pi = null, color = 'WHITE') {
+        super(name, adjacentVertices);
+        this.key = key;
+        this.pi = pi;
+        this.color = color;
     }
 }
 
@@ -179,3 +162,4 @@ module.exports.GraphVertexDFS = GraphVertexDFS;
 module.exports.GraphVertexMST = GraphVertexMST;
 module.exports.GraphEdgeMST = GraphEdgeMST;
 module.exports.WeightedGraphMST = WeightedGraphMST;
+module.exports.GraphVertexPrim = GraphVertexPrim;

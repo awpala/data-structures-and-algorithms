@@ -1111,7 +1111,6 @@ console.log(
 );
 
 let mst = KruskalMST(G);
-// console.log(mst);
 console.log(`\nMinimum-spanning tree after calling DFS(G), with minimized total weight of ${mst.totalWeight}:\n`);
 console.log('edge   | weight');
 console.log('-------|-------');
@@ -1121,9 +1120,64 @@ for(el of mst.edgesMST) {
 }
 console.log();
 console.log(
-    `      b      c -7- d`
+    `      b     c -7- d`
 + `\n  4/      /2   \\    \\9`
 + `\na        i      \\4    e`
 + `\n  8\\             \\`
 + `\n      h -1- g -2- f`
+);
+
+// CLRS Section 23.3 - Prim's Algorithm (Minimum Spanning Tree)
+const { GraphVertexPrim } = require('./utilities');
+const { Prim } = require('./graph-algorithms/p634_Prim');
+
+console.log('\nSection 23.3 - Prim\'s Algorithm (Minimum Spanning Tree)');
+
+G = new WeightedGraphMST();
+
+G.addWeightedEdge(new GraphVertexPrim('a'), new GraphVertexPrim('b'), 4); // cf. Figure 23.5, p. 635
+G.addWeightedEdge(new GraphVertexPrim('h'), G.V['a'], 8);
+G.addWeightedEdge(G.V['b'], G.V['h'], 11);
+G.addWeightedEdge(new GraphVertexPrim('i'), new GraphVertexPrim('c'), 2);
+G.addWeightedEdge(G.V['i'], new GraphVertexPrim('g'), 6);
+G.addWeightedEdge(G.V['b'], G.V['c'], 8);
+G.addWeightedEdge(G.V['i'], G.V['h'], 7);
+G.addWeightedEdge(G.V['g'], G.V['h'], 1);
+G.addWeightedEdge(new GraphVertexPrim('d'), new GraphVertexPrim('e'), 9);
+G.addWeightedEdge(new GraphVertexPrim('f'), G.V['c'], 4);
+G.addWeightedEdge(G.V['f'], G.V['g'], 2);
+G.addWeightedEdge(G.V['c'], G.V['d'], 7);
+G.addWeightedEdge(G.V['f'], G.V['d'], 14);
+G.addWeightedEdge(G.V['f'], G.V['e'], 10);
+
+console.log('\nInitial undirected weighted graph:\n');
+console.log(
+    `      b  -8-  c -7- d`
++ `\n  4/  |    /2   \\   |  \\9`
++ `\na   11|   i      \\4 |14   e`
++ `\n  8\\  | 7/ \\6     \\ |  /10`
++ `\n      h  -1-  g -2- f`
+);
+
+mst = new Prim();
+mst.PrimMST(G, G.V['a'])
+let totalWeight = 0;
+for(let v in G.V) {
+    totalWeight += G.V[v].key;
+}
+console.log(`\nMinimum-spanning tree after calling DFS(G), with minimized total weight of ${totalWeight}:\n`);
+console.log('v  | v.pi | v.key ');
+console.log('---|------|-------');
+for(let v in G.V) {
+    (v !== 'a') 
+    ? console.log(`${G.V[v].name}    ${G.V[v].pi.name}      ${G.V[v].key}`)
+    : console.log(`${G.V[v].name}    ${' '}      ${G.V[v].key}`);
+}
+console.log();
+console.log(
+    `    b,${G.V['b'].key}     c,${G.V['c'].key}  ${arrows.l}${arrows.l}${arrows.l}  d,${G.V['d'].key}`
++ `\n   ${arrows.dl}       ${arrows.ur}    ${arrows.dr}        ${arrows.ul}`
++ `\na,${G.V['a'].key}    i,${G.V['i'].key}        ${arrows.dr}        e,${G.V['e'].key}`
++ `\n   ${arrows.ul}                ${arrows.dr}`
++ `\n    h,${G.V['h'].key} ${arrows.l}${arrows.l}${arrows.l} g,${G.V['g'].key}  ${arrows.l}${arrows.l}${arrows.l}  f,${G.V['f'].key}`
 );
