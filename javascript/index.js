@@ -1111,7 +1111,7 @@ console.log(
 );
 
 let mst = KruskalMST(G);
-console.log(`\nMinimum-spanning tree after calling DFS(G), with minimized total weight of ${mst.totalWeight}:\n`);
+console.log(`\nMinimum-spanning tree after calling Kruskal(G), with minimized total weight of ${mst.totalWeight}:\n`);
 console.log('edge   | weight');
 console.log('-------|-------');
 for(el of mst.edgesMST) {
@@ -1165,7 +1165,7 @@ let totalWeight = 0;
 for(let v in G.V) {
     totalWeight += G.V[v].key;
 }
-console.log(`\nMinimum-spanning tree after calling DFS(G), with minimized total weight of ${totalWeight}:\n`);
+console.log(`\nMinimum-spanning tree after calling Prim(G, 'a'), with minimized total weight of ${totalWeight}:\n`);
 console.log('v  | v.pi | v.key ');
 console.log('---|------|-------');
 for(let v in G.V) {
