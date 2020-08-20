@@ -57,7 +57,7 @@ class GraphVertex {
 
 class UnweightedGraph {
     constructor(V = {}) {
-        this.V = {};
+        this.V = V;
     }
 
     addUndirectedEdge = (u, v) => {
