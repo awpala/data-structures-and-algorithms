@@ -4,7 +4,7 @@
 
 const { CharNode } = require('../utilities');
 
-class HuffmanCodes {
+class HuffmanMinPQ {
     constructor(C = {}) {
         this.C = C;
 
@@ -30,31 +30,30 @@ class HuffmanCodes {
     extractMin = (Q = this.Q) => {
         return Q.shift(0);
     }
+}
 
-    huffman = (C = this.C) => {
-        const n = Object.keys(C).length;
-        // N.B. this.Q initialized in constructor
-        for (let i = 1; i < n; i++) {
-            let z = new CharNode(null, null);
-            let x = z.left = this.extractMin();
-            let y = z.right = this.extractMin();
-            z.freq = x.freq + y.freq;
-            this.insert(z);
-        }
-        return this.extractMin();
+const huffman = (C) => {
+    const n = Object.keys(C).length;
+    const Q = new HuffmanMinPQ(C);
+    for (let i = 1; i < n; i++) {
+        let z = new CharNode(null, null);
+        let x = z.left = Q.extractMin();
+        let y = z.right = Q.extractMin();
+        z.freq = x.freq + y.freq;
+        Q.insert(z);
     }
+    return Q.extractMin();
+}
 
-    printHuffman = (z, encodingStr = '') => { // N.B. preorder traversal
-        if (z !== null) {
-            if(z.char !== null) {
-                console.log(`${z.char}: ${encodingStr}`);
-            }
-            this.printHuffman(z.left, `${encodingStr}0`);
-            this.printHuffman(z.right, `${encodingStr}1`);
+const printHuffman = (z, encodingStr = '') => { // N.B. preorder traversal
+    if (z !== null) {
+        if(z.char !== null) {
+            console.log(`${z.char}: ${encodingStr}`);
         }
+        this.printHuffman(z.left, `${encodingStr}0`);
+        this.printHuffman(z.right, `${encodingStr}1`);
     }
 }
 
-module.exports = {
-    HuffmanCodes
-}
+module.exports.huffman = huffman;
+module.exports.printHuffman = printHuffman;

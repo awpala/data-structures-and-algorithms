@@ -821,7 +821,7 @@ maxValue = knapsack.knapsackFractional();
 console.log(`\nMaximized value of ${n} items in fractional knapsack with weight limit of ${W}: \$${maxValue}`);
 
 // CLRS Section 16.3 - Greedy Algorithm: Huffman Codes
-const { HuffmanCodes } = require('./algorithm-techniques/p431_HuffmanCodes');
+const { huffman, printHuffman } = require('./algorithm-techniques/p431_HuffmanCodes');
 
 console.log('\nSection 16.3 - Greedy Algorithm: Huffman Codes');
 
@@ -836,10 +836,9 @@ let C = { // cf. Figure 16.3, p. 429
 
 console.log('\nCharacter frequencies:\n', C);
 
-let huffman = new HuffmanCodes(C);
-let codes = huffman.huffman();
+let codes = huffman(C);
 console.log('\nEncodings via Huffman\'s algorithm:');
-huffman.printHuffman(codes);
+printHuffman(codes);
 
 
 // ----- ADVANCED DATA STRUCTURES ----- //
@@ -1012,8 +1011,7 @@ console.log(
 + `\nv   w - x - y`
 );
 
-let bfs = new BFS();
-bfs.BFS(G.V, G.V['s']);
+BFS(G.V, G.V['s']);
 
 let d = {};
 for(let v in G.V) {
@@ -1129,7 +1127,7 @@ console.log(
 
 // CLRS Section 23.3 - Prim's Algorithm (Minimum Spanning Tree)
 const { GraphVertexPrim } = require('./utilities');
-const { Prim } = require('./graph-algorithms/p634_Prim');
+const { PrimMST } = require('./graph-algorithms/p634_Prim');
 
 console.log('\nSection 23.3 - Prim\'s Algorithm (Minimum Spanning Tree)');
 
@@ -1159,8 +1157,7 @@ console.log(
 + `\n      h  -1-  g -2- f`
 );
 
-mst = new Prim();
-mst.PrimMST(G, G.V['a'])
+mst = PrimMST(G, G.V['a'])
 let totalWeight = 0;
 for(let v in G.V) {
     totalWeight += G.V[v].key;
