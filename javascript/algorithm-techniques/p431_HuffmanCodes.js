@@ -22,13 +22,13 @@ class HuffmanMinPQ {
     // MinPQ to work with CharNode.freq values rather than
     // simple primitive number values.
 
-    insert = (z, Q = this.Q) => {
-        Q.splice(0, 0, z);
-        Q.sort((a, b) => a.freq - b.freq);
+    insert = (z) => {
+        this.Q.splice(0, 0, z);
+        this.Q.sort((a, b) => a.freq - b.freq);
     }
 
-    extractMin = (Q = this.Q) => {
-        return Q.shift(0);
+    extractMin = () => {
+        return this.Q.shift(0);
     }
 }
 
