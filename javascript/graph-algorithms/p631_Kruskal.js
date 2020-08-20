@@ -4,7 +4,7 @@
 
 const { SetNode } = require('../utilities');
 
-class DisjointSetKruskal {
+class KruskalDisjointSet {
     constructor(V) {
         this.S = {};
         for (let vertex in V) {
@@ -47,7 +47,7 @@ const KruskalMST = (G) => {
         totalWeight: 0,
         edgesMST: []
     };
-    let ds = new DisjointSetKruskal(G.V);
+    let ds = new KruskalDisjointSet(G.V);
     G.E.sort((a, b) => a.weight - b.weight);
     for (let edge of G.E) {
         const vertices = edge.vertices;
