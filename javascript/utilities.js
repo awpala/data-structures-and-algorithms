@@ -32,7 +32,7 @@ class RBTreeNode extends TreeNode {
 }
 
 class CharNode {
-    constructor(char = null, freq = 0, left = null, right = null) {
+    constructor(char, freq = 0, left = null, right = null) {
         this.char = char;
         this.freq = freq;
         this.left = left;

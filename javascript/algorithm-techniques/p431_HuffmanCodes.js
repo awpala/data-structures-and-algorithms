@@ -36,7 +36,7 @@ const huffman = (C) => {
     const n = Object.keys(C).length;
     const Q = new HuffmanMinPQ(C);
     for (let i = 1; i < n; i++) {
-        let z = new CharNode(null);
+        let z = new CharNode(null); // N.B. null/non-key for tree nodes
         let x = z.left = Q.extractMin();
         let y = z.right = Q.extractMin();
         z.freq = x.freq + y.freq;
