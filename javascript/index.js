@@ -1114,9 +1114,9 @@ let mst = KruskalMST(G);
 console.log(`\nMinimum-spanning tree after calling Kruskal(G), with minimized total weight of ${mst.totalWeight}:\n`);
 console.log('edge   | weight');
 console.log('-------|-------');
-for(el of mst.edgesMST) {
-    const vertices = el.e.vertices;
-    console.log(`(${vertices.u.name}, ${vertices.v.name}) | ${el.e.weight}`);
+for(edge of mst.edgesMST) {
+    const vertices = edge.vertices;
+    console.log(`(${vertices.u.name}, ${vertices.v.name}) | ${edge.weight}`);
 }
 console.log();
 console.log(

@@ -41,7 +41,7 @@ class Prim {
             const adj = u.adjacentVertices;
             for (let vertex in adj) {
                 const v = G.V[vertex];
-                const w = adj[vertex].w.e.weight;
+                const w = adj[vertex].w.weight;
                 const vIndexInQ = this.Q.findIndex(vertex => vertex === v);
                 if((v.color === 'WHITE') && (w < v.key)) {
                     v.pi = u;
