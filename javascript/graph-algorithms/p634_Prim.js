@@ -29,10 +29,10 @@ class Prim {
     // -- cf. https://home.cse.ust.hk/~dekai/271/notes/L07/L07.pdf
     // -- cf. https://cs.stackexchange.com/questions/50964/confusion-in-clrss-version-of-prims-algorithm
     PrimMST = (G, r) => {
-        for (let vertex in G.V) {
-            G.V[vertex].key = Number.POSITIVE_INFINITY;
-            G.V[vertex].pi = null;
-            G.V[vertex].color = 'WHITE'
+        for (let u in G.V) {
+            G.V[u].key = Number.POSITIVE_INFINITY;
+            G.V[u].pi = null;
+            G.V[u].color = 'WHITE'
         }
         r.key = 0;
         this.buildMinPQ(G);
