@@ -1121,9 +1121,9 @@ for(el of mst.edgesMST) {
 console.log();
 console.log(
     `      b     c -7- d`
-+ `\n  4/      /2   \\    \\9`
-+ `\na        i      \\4    e`
-+ `\n  8\\             \\`
++ `\n  4/      /2  \\     \\9`
++ `\na        i     \\4     e`
++ `\n  8\\            \\`
 + `\n      h -1- g -2- f`
 );
 
