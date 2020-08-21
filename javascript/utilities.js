@@ -4,6 +4,8 @@
     and algorithms
 */
 
+// ----- ABSTRACT DATA TYPES (ADTs) ----- //
+
 // A is a list ADT, represented by an array
 const A = [];
 
@@ -108,13 +110,13 @@ class GraphVertexMST {
     }
 }
 
-class WeightedGraphMST {
+class WeightedGraph {
     constructor(V = {}, E = []) {
         this.V = V;
         this.E = E;
     }
 
-    addWeightedEdge = (u, v, w) => {
+    addUndirectedEdge = (u, v, w) => { // MST
         if(!this.V[u.name]) {
             this.V[u.name] = u;
         }
@@ -133,6 +135,23 @@ class WeightedGraphMST {
             w: this.E[this.E.length - 1]
         };
     }
+
+    addDirectedEdge = (u, v, w) => { // SSSP
+        if(!this.V[u.key]) {
+            this.V[u.key] = u;
+        }
+        if(!this.V[v.key]) {
+            this.V[v.key] = v;
+        }
+        this.E.push({
+            vertices: { u, v },
+            weight: w
+        });
+
+        this.V[u.key].adjacentVertices[v.key] = { 
+            w: this.E[this.E.length - 1]
+        };
+    }
 }
 
 class GraphVertexPrim extends GraphVertexMST {
@@ -141,6 +160,31 @@ class GraphVertexPrim extends GraphVertexMST {
         this.key = key;
         this.pi = pi;
         this.color = color;
+    }
+}
+
+class GraphVertexSSSP extends GraphVertex {
+    constructor(key = null, adjacentVertices = {}, d = Number.POSITIVE_INFINITY, pi = null) {
+        super(key, adjacentVertices);
+        this.d = d;
+        this.pi = pi;
+    }
+}
+
+// ----- AUXILIARY FUNCTIONS ----- //
+
+const initializeSingleSource = (G, s) => {
+    for (let v in G.V) {
+        v.d = Number.POSITIVE_INFINITY;
+        v.pi = null;
+    }
+    s.d = 0;
+}
+
+const relax = (u, v, w) => {
+    if (v.d > u.d + w) {
+        v.d = u.d + w;
+        v.pi = u;
     }
 }
 
@@ -155,5 +199,9 @@ module.exports.UnweightedGraph = UnweightedGraph;
 module.exports.GraphVertexBFS = GraphVertexBFS;
 module.exports.GraphVertexDFS = GraphVertexDFS;
 module.exports.GraphVertexMST = GraphVertexMST;
-module.exports.WeightedGraphMST = WeightedGraphMST;
+module.exports.WeightedGraph = WeightedGraph;
 module.exports.GraphVertexPrim = GraphVertexPrim;
+module.exports.GraphVertexSSSP = GraphVertexSSSP;
+
+module.exports.initializeSingleSource = initializeSingleSource;
+module.exports.relax = relax;

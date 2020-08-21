@@ -19,8 +19,8 @@ class PrimMinPQ {
 
     buildMinPQ = (G) => {
         for (let vertex in G.V) {
-            this.Q.push(G.V[vertex]);
             this.length++;
+            this.Q.push(G.V[vertex]);
         }
         this.Q.sort((a, b) => a.key - b.key);
     }

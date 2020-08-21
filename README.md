@@ -44,5 +44,6 @@ The objective of this repository is to gain insight into these fundamental conce
 | Advanced Data Structures | Disjoint Set with Union by Rank and Path Compression | Section 21.3  | (N/A) |
 | Graph Algorithms | Breadth-First Search | Section 22.2 | Queue |
 | Graph Algorithms | Depth-First Search | Section 22.3 | (N/A) |
-| Graph Algorithms | Kruskal's Algorithm (Minimum Spanning Tree) | Section 23.2 | Disjoint Set |
-| Graph Algorithms | Prim's Algorithm (Minimum Spanning Tree) | Section 23.3 | Min Priority Queue |
+| Graph Algorithms | Minimum Spanning Tree: Kruskal's Algorithm | Section 23.2 | Disjoint Set |
+| Graph Algorithms | Minimum Spanning Tree: Prim's Algorithm | Section 23.3 | Min Priority Queue |
+| Graph Algorithms | Single-Source Shortest Path: Bellford-Ford Algorithm | Section 24.1 | (N/A) |

@@ -1040,7 +1040,7 @@ G.addDirectedEdge(new GraphVertexDFS('w'), new GraphVertexDFS('z'))
 G.addDirectedEdge(G.V['w'], G.V['y']);
 G.addDirectedEdge(G.V['z'], G.V['z']);
 
-let arrows = {
+const arrows = {
     u: '\u2b61',
     d: '\u2b63',
     r: '\u2b62',
@@ -1076,27 +1076,27 @@ console.log(
 );
 
 // CLRS Section 23.2 - Kruskal's Algorithm (Minimum Spanning Tree)
-const { GraphVertexMST, WeightedGraphMST } = require('./utilities');
+const { GraphVertexMST, WeightedGraph } = require('./utilities');
 const { KruskalMST } = require('./graph-algorithms/p631_Kruskal');
 
 console.log('\nSection 23.2 - Kruskal\'s Algorithm (Minimum Spanning Tree)');
 
-G = new WeightedGraphMST();
+G = new WeightedGraph();
 
-G.addWeightedEdge(new GraphVertexMST('a'), new GraphVertexMST('b'), 4); // cf. Figure 23.4, p. 632
-G.addWeightedEdge(new GraphVertexMST('h'), G.V['a'], 8);
-G.addWeightedEdge(G.V['b'], G.V['h'], 11);
-G.addWeightedEdge(new GraphVertexMST('i'), new GraphVertexMST('c'), 2);
-G.addWeightedEdge(G.V['i'], new GraphVertexMST('g'), 6);
-G.addWeightedEdge(G.V['b'], G.V['c'], 8);
-G.addWeightedEdge(G.V['i'], G.V['h'], 7);
-G.addWeightedEdge(G.V['g'], G.V['h'], 1);
-G.addWeightedEdge(new GraphVertexMST('d'), new GraphVertexMST('e'), 9);
-G.addWeightedEdge(new GraphVertexMST('f'), G.V['c'], 4);
-G.addWeightedEdge(G.V['f'], G.V['g'], 2);
-G.addWeightedEdge(G.V['c'], G.V['d'], 7);
-G.addWeightedEdge(G.V['f'], G.V['d'], 14);
-G.addWeightedEdge(G.V['f'], G.V['e'], 10);
+G.addUndirectedEdge(new GraphVertexMST('a'), new GraphVertexMST('b'), 4); // cf. Figure 23.4, p. 632
+G.addUndirectedEdge(new GraphVertexMST('h'), G.V['a'], 8);
+G.addUndirectedEdge(G.V['b'], G.V['h'], 11);
+G.addUndirectedEdge(new GraphVertexMST('i'), new GraphVertexMST('c'), 2);
+G.addUndirectedEdge(G.V['i'], new GraphVertexMST('g'), 6);
+G.addUndirectedEdge(G.V['b'], G.V['c'], 8);
+G.addUndirectedEdge(G.V['i'], G.V['h'], 7);
+G.addUndirectedEdge(G.V['g'], G.V['h'], 1);
+G.addUndirectedEdge(new GraphVertexMST('d'), new GraphVertexMST('e'), 9);
+G.addUndirectedEdge(new GraphVertexMST('f'), G.V['c'], 4);
+G.addUndirectedEdge(G.V['f'], G.V['g'], 2);
+G.addUndirectedEdge(G.V['c'], G.V['d'], 7);
+G.addUndirectedEdge(G.V['f'], G.V['d'], 14);
+G.addUndirectedEdge(G.V['f'], G.V['e'], 10);
 
 
 console.log('\nInitial undirected weighted graph:\n');
@@ -1131,22 +1131,22 @@ const { PrimMST } = require('./graph-algorithms/p634_Prim');
 
 console.log('\nSection 23.3 - Prim\'s Algorithm (Minimum Spanning Tree)');
 
-G = new WeightedGraphMST();
+G = new WeightedGraph();
 
-G.addWeightedEdge(new GraphVertexPrim('a'), new GraphVertexPrim('b'), 4); // cf. Figure 23.5, p. 635
-G.addWeightedEdge(new GraphVertexPrim('h'), G.V['a'], 8);
-G.addWeightedEdge(G.V['b'], G.V['h'], 11);
-G.addWeightedEdge(new GraphVertexPrim('i'), new GraphVertexPrim('c'), 2);
-G.addWeightedEdge(G.V['i'], new GraphVertexPrim('g'), 6);
-G.addWeightedEdge(G.V['b'], G.V['c'], 8);
-G.addWeightedEdge(G.V['i'], G.V['h'], 7);
-G.addWeightedEdge(G.V['g'], G.V['h'], 1);
-G.addWeightedEdge(new GraphVertexPrim('d'), new GraphVertexPrim('e'), 9);
-G.addWeightedEdge(new GraphVertexPrim('f'), G.V['c'], 4);
-G.addWeightedEdge(G.V['f'], G.V['g'], 2);
-G.addWeightedEdge(G.V['c'], G.V['d'], 7);
-G.addWeightedEdge(G.V['f'], G.V['d'], 14);
-G.addWeightedEdge(G.V['f'], G.V['e'], 10);
+G.addUndirectedEdge(new GraphVertexPrim('a'), new GraphVertexPrim('b'), 4); // cf. Figure 23.5, p. 635
+G.addUndirectedEdge(new GraphVertexPrim('h'), G.V['a'], 8);
+G.addUndirectedEdge(G.V['b'], G.V['h'], 11);
+G.addUndirectedEdge(new GraphVertexPrim('i'), new GraphVertexPrim('c'), 2);
+G.addUndirectedEdge(G.V['i'], new GraphVertexPrim('g'), 6);
+G.addUndirectedEdge(G.V['b'], G.V['c'], 8);
+G.addUndirectedEdge(G.V['i'], G.V['h'], 7);
+G.addUndirectedEdge(G.V['g'], G.V['h'], 1);
+G.addUndirectedEdge(new GraphVertexPrim('d'), new GraphVertexPrim('e'), 9);
+G.addUndirectedEdge(new GraphVertexPrim('f'), G.V['c'], 4);
+G.addUndirectedEdge(G.V['f'], G.V['g'], 2);
+G.addUndirectedEdge(G.V['c'], G.V['d'], 7);
+G.addUndirectedEdge(G.V['f'], G.V['d'], 14);
+G.addUndirectedEdge(G.V['f'], G.V['e'], 10);
 
 console.log('\nInitial undirected weighted graph:\n');
 console.log(
@@ -1178,3 +1178,43 @@ console.log(
 + `\n   ${arrows.ul}                ${arrows.dr}`
 + `\n    h,${G.V['h'].key} ${arrows.l}${arrows.l}${arrows.l} g,${G.V['g'].key}  ${arrows.l}${arrows.l}${arrows.l}  f,${G.V['f'].key}`
 );
+
+// CLRS Section 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Path)
+const { GraphVertexSSSP } = require('./utilities');
+const { bellmanFord } = require('./graph-algorithms/p651_BellmanFord');
+
+console.log('\nSection 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Path)');
+
+G = new WeightedGraph();
+
+G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 7); // cf. Figure 24.4, p. 652
+G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 6);
+G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 5);
+G.addDirectedEdge(G.V['t'], G.V['y'], 8);
+G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('z'), -4);
+G.addDirectedEdge(G.V['x'], G.V['t'], -2);
+G.addDirectedEdge(G.V['y'], G.V['x'], -3);
+G.addDirectedEdge(G.V['y'], G.V['z'], 9);
+G.addDirectedEdge(G.V['z'], G.V['x'], 7);
+G.addDirectedEdge(G.V['z'], G.V['s'], 2);
+// console.log(G);
+let isReachable = bellmanFord(G, G.V['s']);
+
+console.log(`There is a negative-weight cycle that is reachable from the source: ${isReachable}`);
+
+for(let v in G.V) {
+    console.log(G.V[v]);
+}
+
+// TO-DO: tweak for Dijkstra
+// G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 5); // cf. Figure 24.2
+// G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 3);
+// G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 6);
+// G.addDirectedEdge(G.V['t'], G.V['y'], 2);
+// G.addDirectedEdge(G.V['y'], G.V['t'], 1);
+// G.addDirectedEdge(G.V['y'], G.V['x'], 4);
+// G.addDirectedEdge(G.V['y'], new GraphVertexSSSP('z'), 6);
+// G.addDirectedEdge(G.V['z'], G.V['x'], 7);
+// G.addDirectedEdge(G.V['x'], G.V['z'], 2);
+// G.addDirectedEdge(G.V['z'], G.V['s'], 3);
+// // console.log(G);
