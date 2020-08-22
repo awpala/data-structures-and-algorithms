@@ -171,6 +171,7 @@ class GraphVertexSSSP extends GraphVertex {
     }
 }
 
+
 // ----- AUXILIARY FUNCTIONS ----- //
 
 const initializeSingleSource = (G, s) => {

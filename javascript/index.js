@@ -1186,7 +1186,6 @@ const { bellmanFord } = require('./graph-algorithms/p651_BellmanFord');
 console.log('\nSection 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Path)');
 
 G = new WeightedGraph();
-
 G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 7); // cf. Figure 24.4, p. 652
 G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 6);
 G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 5);
@@ -1219,19 +1218,39 @@ console.log(
 );
 console.log(`\nThere is a negative-weight cycle that is reachable from the source: ${isReachable}`);
 
-// for(let v in G.V) {
-//     console.log(G.V[v]);
-// }
+// CLRS Section 24.3 - Dijkstra's Algorithm (Single-Source Shortest Path)
+const { dijkstra } = require('./graph-algorithms/p658_Dijkstra');
 
-// TO-DO: tweak for Dijkstra
-// G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 5); // cf. Figure 24.2
-// G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 3);
-// G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 6);
-// G.addDirectedEdge(G.V['t'], G.V['y'], 2);
-// G.addDirectedEdge(G.V['y'], G.V['t'], 1);
-// G.addDirectedEdge(G.V['y'], G.V['x'], 4);
-// G.addDirectedEdge(G.V['y'], new GraphVertexSSSP('z'), 6);
-// G.addDirectedEdge(G.V['z'], G.V['x'], 7);
-// G.addDirectedEdge(G.V['x'], G.V['z'], 2);
-// G.addDirectedEdge(G.V['z'], G.V['s'], 3);
-// // console.log(G);
+console.log('\nSection 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Path)');
+
+G = new WeightedGraph();
+G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 5); // cf. Figure 24.2
+G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 10);
+G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 1);
+G.addDirectedEdge(G.V['t'], G.V['y'], 2);
+G.addDirectedEdge(G.V['y'], G.V['t'], 3);
+G.addDirectedEdge(G.V['y'], G.V['x'], 9);
+G.addDirectedEdge(G.V['y'], new GraphVertexSSSP('z'), 2);
+G.addDirectedEdge(G.V['z'], G.V['x'], 6);
+G.addDirectedEdge(G.V['x'], G.V['z'], 4);
+G.addDirectedEdge(G.V['z'], G.V['s'], 7);
+
+console.log('\nInitial directed weighted graph:\n');
+console.log(
+    `       t ${arrows.r}1${arrows.r} x`
++ `\n  10${arrows.ur} ${arrows.d}${arrows.u}    ${arrows.ur}${arrows.d}${arrows.u}`
++ `\ns    2${arrows.d}${arrows.u}3 9 4${arrows.d}${arrows.u}6`
++ `\n   5${arrows.dr} ${arrows.d}${arrows.u}${arrows.ur}    ${arrows.u}${arrows.d}`
++ `\n       y ${arrows.r}2${arrows.r} z`
++ `\n(not pictured: s7${arrows.ul}z)`
+);
+
+dijkstra(G, G.V['s']);
+console.log('\nSingle-source shortest path:\n');
+console.log(
+    `      t,${G.V['t'].d} ${arrows.r}1${arrows.r} x,${G.V['x'].d}`
++ `\n      ${arrows.u}`
++ `\ns,${G.V['s'].d}   ${arrows.u}3`
++ `\n   5${arrows.dr} ${arrows.u}`
++ `\n      y,${G.V['y'].d} ${arrows.r}2${arrows.r} z,${G.V['z'].d}`
+);

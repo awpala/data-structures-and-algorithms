@@ -47,3 +47,4 @@ The objective of this repository is to gain insight into these fundamental conce
 | Graph Algorithms | Minimum Spanning Tree: Kruskal's Algorithm | Section 23.2 | Disjoint Set |
 | Graph Algorithms | Minimum Spanning Tree: Prim's Algorithm | Section 23.3 | Min Priority Queue |
 | Graph Algorithms | Single-Source Shortest Path: Bellford-Ford Algorithm | Section 24.1 | (N/A) |
+| Graph Algorithms | Single-Source Shortest Path: Dijkstra's Algorithm | Section 24.3 | Min Priority Queue |

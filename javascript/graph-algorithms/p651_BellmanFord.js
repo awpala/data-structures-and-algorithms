@@ -1,5 +1,5 @@
 /*
-    CLRS Section 24.1, p. 431
+    CLRS Section 24.1, p. 651
 */
 
 const { initializeSingleSource, relax } = require('../utilities');
