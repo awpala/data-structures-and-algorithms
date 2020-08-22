@@ -2,7 +2,7 @@
     CLRS Section 16.3, p. 431
 */
 
-const { CharNode } = require('../utilities');
+const { HuffmanNode } = require('../utilities');
 
 class HuffmanMinPQ {
     constructor(C = {}) {
@@ -10,7 +10,7 @@ class HuffmanMinPQ {
 
         this.Q = [];
         for (let char in C) {
-            this.insert(new CharNode(char, C[char]))
+            this.insert(new HuffmanNode(char, C[char]))
         }
     }
 
@@ -36,7 +36,7 @@ const huffman = (C) => {
     const n = Object.keys(C).length;
     const Q = new HuffmanMinPQ(C);
     for (let i = 1; i < n; i++) {
-        let z = new CharNode(null); // N.B. null/non-key for tree nodes
+        let z = new HuffmanNode(null); // N.B. null/non-key for tree nodes
         let x = z.left = Q.extractMin();
         let y = z.right = Q.extractMin();
         z.freq = x.freq + y.freq;

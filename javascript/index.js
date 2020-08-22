@@ -1204,7 +1204,7 @@ console.log(
 + `\ns    8   -4 -3  7`
 + `\n  7${arrows.dr} ${arrows.d}    ${arrows.ur} ${arrows.dr}   ${arrows.u}`
 + `\n     y    ${arrows.r}9${arrows.r}   z`
-+ `\n(not pictured: s2${arrows.ul}z)`
++ `\n(not pictured: z ${arrows.r}2${arrows.r} s)`
 );
 
 let isReachable = bellmanFord(G, G.V['s']);
@@ -1220,7 +1220,7 @@ console.log();
 console.log(
     `     t,${G.V['t'].d}  ${arrows.l}-2${arrows.l}  x,${G.V['x'].d}`
 + `\n        ${arrows.dr}     ${arrows.ur}`
-+ `\ns,${G.V['s'].d}     -4 -3`
++ `\ns,${G.V['s'].d}     -4  -3`
 + `\n  7${arrows.dr}      ${arrows.ur} ${arrows.dr}`
 + `\n     y,${G.V['y'].d}        z,${G.V['z'].d}`
 );
@@ -1250,7 +1250,7 @@ console.log(
 + `\ns    2${arrows.d}${arrows.u}3 9 4${arrows.d}${arrows.u}6`
 + `\n   5${arrows.dr} ${arrows.d}${arrows.u}${arrows.ur}    ${arrows.u}${arrows.d}`
 + `\n       y ${arrows.r}2${arrows.r} z`
-+ `\n(not pictured: s7${arrows.ul}z)`
++ `\n(not pictured: z ${arrows.r}7${arrows.r} s)`
 );
 
 dijkstra(G, G.V['s']);

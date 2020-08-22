@@ -16,7 +16,7 @@ class Knapsack01 {
     knapsack01 = (n = this.n, W = this.W) => {
         let K = [];
         for (let i = 0; i <= this.n; i++) {
-            K.push(new Array (this.W + 1))
+            K.push(new Array(this.W + 1))
         }
         for (let j = 0; j <= this.W; j++) {
             K[0][j] = 0;

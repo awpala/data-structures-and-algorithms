@@ -33,7 +33,7 @@ class RBTreeNode extends TreeNode {
     }
 }
 
-class CharNode {
+class HuffmanNode {
     constructor(char, freq = 0, left = null, right = null) {
         this.char = char;
         this.freq = freq;
@@ -193,7 +193,7 @@ module.exports.A = A;
 module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
 module.exports.RBTreeNode = RBTreeNode;
-module.exports.CharNode = CharNode;
+module.exports.HuffmanNode = HuffmanNode;
 module.exports.SetNode = SetNode;
 module.exports.GraphVertex = GraphVertex;
 module.exports.UnweightedGraph = UnweightedGraph;
