@@ -2,13 +2,13 @@
     CLRS Section 21.3, p. 571
 */
 
-let { SetNode } = require('../utilities');
+let { DisjointSetNode } = require('../utilities');
 
 class DisjointSet {
     constructor(S = []) {
         this.S = {};
         for (let element of S) {
-            const newSet = new SetNode(element);
+            const newSet = new DisjointSetNode(element);
             this.makeSet(newSet);
             this.S[element] = newSet;
         }

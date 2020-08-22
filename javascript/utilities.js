@@ -42,7 +42,7 @@ class HuffmanNode {
     }
 }
 
-class SetNode {
+class DisjointSetNode {
     constructor(key, p = this, rank = 0) {
         this.key = key;
         this.p = p;
@@ -194,7 +194,7 @@ module.exports.ListNode = ListNode;
 module.exports.TreeNode = TreeNode;
 module.exports.RBTreeNode = RBTreeNode;
 module.exports.HuffmanNode = HuffmanNode;
-module.exports.SetNode = SetNode;
+module.exports.DisjointSetNode = DisjointSetNode;
 module.exports.GraphVertex = GraphVertex;
 module.exports.UnweightedGraph = UnweightedGraph;
 module.exports.GraphVertexBFS = GraphVertexBFS;

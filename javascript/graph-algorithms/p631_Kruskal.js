@@ -2,13 +2,13 @@
     CLRS Section 23.2, p. 631
 */
 
-const { SetNode } = require('../utilities');
+const { DisjointSetNode } = require('../utilities');
 
 class KruskalDisjointSet {
     constructor(V) {
         this.S = {};
         for (let vertex in V) {
-            const newSet = new SetNode(V[vertex]);
+            const newSet = new DisjointSetNode(V[vertex]);
             this.makeSet(newSet);
             this.S[vertex] = newSet;
         }
