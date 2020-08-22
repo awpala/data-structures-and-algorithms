@@ -1187,11 +1187,11 @@ console.log('\nSection 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Pat
 
 G = new WeightedGraph();
 G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 7); // cf. Figure 24.4, p. 652
-G.addDirectedEdge(G.V['s'], new GraphVertexSSSP('t'), 6);
-G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('x'), 5);
+G.addDirectedEdge(new GraphVertexSSSP('x'), new GraphVertexSSSP('t'), -2);
+G.addDirectedEdge(G.V['s'], G.V['t'], 6);
 G.addDirectedEdge(G.V['t'], G.V['y'], 8);
 G.addDirectedEdge(G.V['t'], new GraphVertexSSSP('z'), -4);
-G.addDirectedEdge(G.V['x'], G.V['t'], -2);
+G.addDirectedEdge(G.V['t'], G.V['x'], 5);
 G.addDirectedEdge(G.V['y'], G.V['x'], -3);
 G.addDirectedEdge(G.V['y'], G.V['z'], 9);
 G.addDirectedEdge(G.V['z'], G.V['x'], 7);
@@ -1209,6 +1209,14 @@ console.log(
 
 let isReachable = bellmanFord(G, G.V['s']);
 console.log('\nSingle-source shortest path:\n');
+console.log('v  | v.pi | v.d ');
+console.log('---|------|-----');
+for(let v in G.V) {
+    (v !== 's') 
+    ? console.log(`${G.V[v].key}    ${G.V[v].pi.key}      ${G.V[v].d}`)
+    : console.log(`${G.V[v].key}    ${' '}      ${G.V[v].d}`);
+}
+console.log();
 console.log(
     `     t,${G.V['t'].d}  ${arrows.l}-2${arrows.l}  x,${G.V['x'].d}`
 + `\n        ${arrows.dr}     ${arrows.ur}`
@@ -1247,6 +1255,14 @@ console.log(
 
 dijkstra(G, G.V['s']);
 console.log('\nSingle-source shortest path:\n');
+console.log('v  | v.pi | v.d ');
+console.log('---|------|-----');
+for(let v in G.V) {
+    (v !== 's') 
+    ? console.log(`${G.V[v].key}    ${G.V[v].pi.key}      ${G.V[v].d}`)
+    : console.log(`${G.V[v].key}    ${' '}      ${G.V[v].d}`);
+}
+console.log();
 console.log(
     `      t,${G.V['t'].d} ${arrows.r}1${arrows.r} x,${G.V['x'].d}`
 + `\n      ${arrows.u}`
