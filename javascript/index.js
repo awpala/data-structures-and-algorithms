@@ -1197,14 +1197,31 @@ G.addDirectedEdge(G.V['y'], G.V['x'], -3);
 G.addDirectedEdge(G.V['y'], G.V['z'], 9);
 G.addDirectedEdge(G.V['z'], G.V['x'], 7);
 G.addDirectedEdge(G.V['z'], G.V['s'], 2);
-// console.log(G);
+
+console.log('\nInitial directed weighted graph:\n');
+console.log(
+    `     t -2${arrows.l.repeat(2)}|${arrows.r.repeat(2)}5 x`
++ `\n  6${arrows.ur} ${arrows.d}  ${arrows.dr}     ${arrows.ur} ${arrows.u}`
++ `\ns    8   -4 -3  7`
++ `\n  7${arrows.dr} ${arrows.d}    ${arrows.ur} ${arrows.dr}   ${arrows.u}`
++ `\n     y    ${arrows.r}9${arrows.r}   z`
++ `\n(not pictured: s2${arrows.ul}z)`
+);
+
 let isReachable = bellmanFord(G, G.V['s']);
+console.log('\nSingle-source shortest path:\n');
+console.log(
+    `     t,${G.V['t'].d}  ${arrows.l}-2${arrows.l}  x,${G.V['x'].d}`
++ `\n        ${arrows.dr}     ${arrows.ur}`
++ `\ns,${G.V['s'].d}     -4 -3`
++ `\n  7${arrows.dr}      ${arrows.ur} ${arrows.dr}`
++ `\n     y,${G.V['y'].d}        z,${G.V['z'].d}`
+);
+console.log(`\nThere is a negative-weight cycle that is reachable from the source: ${isReachable}`);
 
-console.log(`There is a negative-weight cycle that is reachable from the source: ${isReachable}`);
-
-for(let v in G.V) {
-    console.log(G.V[v]);
-}
+// for(let v in G.V) {
+//     console.log(G.V[v]);
+// }
 
 // TO-DO: tweak for Dijkstra
 // G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 5); // cf. Figure 24.2
