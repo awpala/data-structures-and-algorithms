@@ -1229,7 +1229,7 @@ console.log(`\nThere is a negative-weight cycle that is reachable from the sourc
 // CLRS Section 24.3 - Dijkstra's Algorithm (Single-Source Shortest Path)
 const { dijkstra } = require('./graph-algorithms/p658_Dijkstra');
 
-console.log('\nSection 24.1 - Bellman-Ford Algorithm (Single-Source Shortest Path)');
+console.log('\nSection 24.3 - Dijkstra\'s Algorithm (Single-Source Shortest Path)');
 
 G = new WeightedGraph();
 G.addDirectedEdge(new GraphVertexSSSP('s'), new GraphVertexSSSP('y'), 5); // cf. Figure 24.6, p. 659
