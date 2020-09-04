@@ -129,10 +129,10 @@ class WeightedGraph {
         });
 
         this.V[u.name].adjacentVertices[v.name] = { 
-            w: this.E[this.E.length - 1]
+            edge: this.E[this.E.length - 1]
         };
         this.V[v.name].adjacentVertices[u.name] = {
-            w: this.E[this.E.length - 1]
+            edge: this.E[this.E.length - 1]
         };
     }
 
@@ -149,7 +149,7 @@ class WeightedGraph {
         });
 
         this.V[u.key].adjacentVertices[v.key] = { 
-            w: this.E[this.E.length - 1]
+            edge: this.E[this.E.length - 1]
         };
     }
 }

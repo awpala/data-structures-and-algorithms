@@ -55,7 +55,7 @@ const PrimMST = (G, r) => {
         const adj = u.adjacentVertices;
         for (let vertex in adj) {
             const v = G.V[vertex];
-            const w = adj[vertex].w.weight;
+            const w = adj[vertex].edge.weight;
             if((v.color === 'WHITE') && (w < v.key)) {
                 v.pi = u;
                 Q.decreaseKey(v, w)
