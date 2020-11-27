@@ -4,7 +4,7 @@
 '''
 
 # import utilities (ADTs)
-from utilities import A
+from utilities import A, ListNode
 
 # ----- SORTING ALGORITMS ----- #
 print('\n|----- SORTING ALGORITHMS ----|')
@@ -233,3 +233,32 @@ Q.head_enqueue(8)
 print('after head_enqueue(8):', Q.Q)
 Q.tail_dequeue()
 print('after tail_dequeue():', Q.Q)
+
+# CLRS Section 10.2 - Linked List
+from data_structures.p238_linked_list import LinkedList
+
+print('\nSection 10.2 - Linked List')
+
+L = LinkedList()
+L.list_insert(ListNode(1))
+L.list_insert(ListNode(4))
+L.list_insert(ListNode(16))
+L.list_insert(ListNode(9)) # cf. Figure 10.3, p. 237
+L.list_insert(ListNode(25))
+print('\nafter list_insert(25):'
+    , L.head.key, '->'
+    , L.head.next.key, '->'
+    , L.head.next.next.key, '->'
+    , L.head.next.next.next.key, '->'
+    , L.head.next.next.next.next.key, '->'
+    , L.head.next.next.next.next.next
+)
+delete_node = L.list_search(4)
+L.list_delete(delete_node)
+print('after list_delete(4):'
+    , L.head.key, '->'
+    , L.head.next.key, '->'
+    , L.head.next.next.key, '->'
+    , L.head.next.next.next.key, '->'
+    , L.head.next.next.next.next
+)
