@@ -12,7 +12,7 @@ The objective of this repository is to gain insight into these fundamental conce
 
 **JavaScript**: Requires Node.js v12 or higher. Run shell command `node javascript` in root directory for console outputs (cf. `javascript/index.js` for output script code).
 
-**Python**: Requires Python 3.8 or higher. Run shell command `python main.py` in sub-directory `/python` fo console outputs (cf. `python/main.py` for output script code).
+**Python**: Requires Python 3.8 or higher. Run shell command `python main.py` in sub-directory `/python` for console outputs (cf. `python/main.py` for output script code).
 
 ## Summary
 

@@ -36,3 +36,12 @@ print('\nsorted:', A)
 A = [3, 41, 52, 26, 38, 57, 9, 49] # cf. Exercise 2.3-1, p. 37
 merge_sort(A, 0, len(A)-1)
 print('\nsorted:', A)
+
+# CLRS Chapter 2 Problems - Bubble Sort
+from sorting.p040_bubble_sort import bubble_sort
+
+print('\nProblem 2-2 - Bubble Sort')
+
+A = [3, 41, 52, 26, 38, 57, 9, 49] # cf. Exercise 2.3-1, p. 37
+bubble_sort(A)
+print('\nsorted:', A)
