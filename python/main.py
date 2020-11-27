@@ -111,3 +111,19 @@ A = [5, 3, 17, 10, 84, 19, 6, 22, 9]; # cf. Exercise 6.3-1, p. 159
 max_heap = MaxHeap(A, len(A))
 max_heap.build_max_heap()
 print('\nafter build_max_heap:', max_heap.A)
+
+# CLRS Section 6.3 - Min-Heap
+from data_structures.p156_min_heap import MinHeap
+A = []
+
+print('\nSection 6.3 - Min-Heap')
+
+A = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7] # cf. Figure 6.3, p. 158
+min_heap = MinHeap(A, len(A))
+min_heap.build_min_heap()
+print('\nafter build_min_heap:', min_heap.A)
+
+A = [5, 3, 17, 10, 84, 19, 6, 22, 9]; # cf. Exercise 6.3-1, p. 159
+min_heap = MinHeap(A, len(A))
+min_heap.build_min_heap()
+print('\nafter build_min_heap:', min_heap.A)
