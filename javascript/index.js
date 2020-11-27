@@ -213,7 +213,6 @@ console.log('\nafter enqueue(17), enqueue(3), enqueue(5):', Q.Q);
 Q.dequeue();
 console.log('after dequeue():', Q.Q);
 
-
 Q = new Queue(new Array(6).fill(undefined)); // cf. Exercise 10.1-3, p. 235
 Q.enqueue(4);
 Q.enqueue(1);

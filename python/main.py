@@ -192,3 +192,27 @@ S.push(8)
 print('after pop(), push(8):', S.S)
 S.pop()
 print('after pop():', S.S)
+
+# CLRS Section 10.1 - Queue
+from data_structures.p235_queue import Queue
+
+print('\nSection 10.1 - Queue')
+
+Q = Queue([None, None, None, None, None, None, 15, 6, 9, 8, 4, None], 6, 11) # cf. Figure 10.2, p. 234
+Q.enqueue(17)
+Q.enqueue(3)
+Q.enqueue(5)
+print('\nafter enqueue(17), enqueue(3), enqueue(5):', Q.Q)
+Q.dequeue()
+print('after dequeue():', Q.Q)
+
+Q = Queue([None for elements in range(0, 6)]) # cf. Exercise 10.1-3, p. 235
+Q.enqueue(4)
+Q.enqueue(1)
+Q.enqueue(3)
+print('\nafter enqueue(4), enqueue(1), enqueue(3):', Q.Q)
+Q.dequeue()
+print('after dequeue():', Q.Q)
+Q.enqueue(8)
+Q.dequeue()
+print('after enqueue(8), dequeue():', Q.Q)
