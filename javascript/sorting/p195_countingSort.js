@@ -14,7 +14,7 @@ const countingSort = (A, B, k) => {
     for (let i = 1; i <= k; i++) {
         C[i] += C[i - 1];
     }
-    // C[i] now contains the number of elements less than or equal to  i
+    // C[i] now contains the number of elements less than or equal to i
     for (let j = A.length - 1; j >= 0; j--) {
         B[C[A[j]] - 1] = A[j];
         C[A[j]]--;

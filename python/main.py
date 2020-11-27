@@ -69,3 +69,15 @@ print('\nsorted:', A)
 A = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11] # cf. Exercise 7.1-1, p. 173
 quicksort(A, 0, len(A)-1)
 print('\nsorted:', A)
+
+# CLRS Section 8.2 - Counting Sort
+from sorting.p191_counting_sort import counting_sort
+A = []
+B = []
+
+print('\nSection 8.2 - Counting Sort')
+
+A = [2, 5, 3, 0, 2, 3, 0, 3] # cf. Figure 8.2, p. 195
+B = [None for element in range(0, len(A))]
+counting_sort(A, B, max(A)) # N.B. k = 5
+print('\nsorted:', B)
