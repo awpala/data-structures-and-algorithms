@@ -52,7 +52,7 @@ A = []
 
 print('\nSection 6.4 - Heapsort')
 
-A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.4, p. 161
+A = [13, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.4, p. 161
 heapsort(A)
 print('\nsorted:', A)
 
@@ -81,3 +81,33 @@ A = [2, 5, 3, 0, 2, 3, 0, 3] # cf. Figure 8.2, p. 195
 B = [None for element in range(0, len(A))]
 counting_sort(A, B, max(A)) # N.B. k = 5
 print('\nsorted:', B)
+
+
+# ----- DATA STRUCTURES ----- #
+print('\n\n|----- DATA STRUCTURES ----|')
+
+# CLRS Section 6.3 - Max-Heap
+from data_structures.p157_max_heap import MaxHeap
+A = []
+
+print('\nSection 6.3 - Max-Heap')
+
+A = [16, 4, 10, 14, 7, 9, 3, 2, 8, 1] # cf. Figure 6.2, p. 152
+max_heap = MaxHeap(A, len(A))
+max_heap.max_heapify(1)
+print('\nafter max_heapify:', max_heap.A)
+
+A = [27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0] # cf. Exercise 6.2-1, p. 156
+max_heap = MaxHeap(A, len(A))
+max_heap.max_heapify(2)
+print('\nafter max_heapify:', max_heap.A)
+
+A = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7] # cf. Figure 6.3, p. 158
+max_heap = MaxHeap(A, len(A))
+max_heap.build_max_heap()
+print('\nafter build_max_heap:', max_heap.A)
+
+A = [5, 3, 17, 10, 84, 19, 6, 22, 9]; # cf. Exercise 6.3-1, p. 159
+max_heap = MaxHeap(A, len(A))
+max_heap.build_max_heap()
+print('\nafter build_max_heap:', max_heap.A)
