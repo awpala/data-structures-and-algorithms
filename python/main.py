@@ -169,3 +169,26 @@ min_pq.build_min_heap()
 print('\nafter build_min_heap:', min_pq.A)
 min_pq.min_heap_insert(6)
 print('after min_heap_insert(6):', min_pq.A)
+
+# CLRS Section 10.1 - Stack
+from data_structures.p233_stack import Stack
+
+print('\nSection 10.1 - Stack')
+
+S = Stack([15, 6, 2, 9, None, None, None], 3) # cf. Figure 10.1, p. 233
+S.push(17)
+S.push(3)
+print('\nafter push(17), push(3):', S.S)
+S.pop()
+print('after pop():', S.S)
+
+S = Stack([None for elements in range(0, 6)]) # cf. Exercise 10.1-1, p. 235
+S.push(4)
+S.push(1)
+S.push(3)
+print('\nafter push(4), push(1), push(3):', S.S)
+S.pop()
+S.push(8)
+print('after pop(), push(8):', S.S)
+S.pop()
+print('after pop():', S.S)
