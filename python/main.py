@@ -55,3 +55,17 @@ print('\nSection 6.4 - Heapsort')
 A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.4, p. 161
 heapsort(A)
 print('\nsorted:', A)
+
+# CLRS Section 7.1 - Quicksort
+from sorting.p171_quicksort import quicksort
+A = []
+
+print('\nSection 7.1 - Quicksort')
+
+A = [2, 8, 7, 1, 3, 5, 6, 4]; # cf. Figure 7.1, p. 172
+quicksort(A, 0, len(A)-1)
+print('\nsorted:', A)
+
+A = [13, 19, 9, 5, 12, 8, 7, 4, 21, 2, 6, 11] # cf. Exercise 7.1-1, p. 173
+quicksort(A, 0, len(A)-1)
+print('\nsorted:', A)
