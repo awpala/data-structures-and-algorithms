@@ -1,5 +1,5 @@
 /*
-    CLRS Chapter 2 Exercise 6.2-2, p. 156
+    CLRS Chapter 6 Exercise 6.2-2, p. 156
 */
 
 class MinHeap {

@@ -45,3 +45,13 @@ print('\nProblem 2-2 - Bubble Sort')
 A = [3, 41, 52, 26, 38, 57, 9, 49] # cf. Exercise 2.3-1, p. 37
 bubble_sort(A)
 print('\nsorted:', A)
+
+# CLRS Section 6.4 - Heapsort
+from sorting.p160_heapsort import heapsort
+A = []
+
+print('\nSection 6.4 - Heapsort')
+
+A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.4, p. 161
+heapsort(A)
+print('\nsorted:', A)
