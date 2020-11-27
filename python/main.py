@@ -137,15 +137,35 @@ print('\nSection 6.5 - Max Priority Queue')
 A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.5, p. 164
 max_pq = MaxPQ(A, len(A))
 max_pq.build_max_heap()
-print('\nafter buildMaxHeap:', max_pq.A)
+print('\nafter build_max_heap:', max_pq.A)
 max_pq.heap_increase_key(8, 15)
-print('after heapIncreaseKey(4 -> 15):', max_pq.A)
+print('after heap_increase_key(4 -> 15):', max_pq.A)
 
 A = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1] # cf. Exercise 6.5-2, p. 165
 max_pq = MaxPQ(A, len(A))
 max_pq.build_max_heap()
-print('\nafter buildMaxHeap:', max_pq.A)
+print('\nafter build_max_heap:', max_pq.A)
 max_pq.max_heap_insert(10)
-print('after maxHeapInsert(10):', max_pq.A)
+print('after max_heap_insert(10):', max_pq.A)
 
 # TO-DO: fix heap_delete
+
+# CLRS Section 6.5 Exercises - Min Priority Queue
+from data_structures.p165_min_pq import MinPQ
+A = []
+
+print('\nExercise 6.5-3 - Min Priority Queue')
+
+A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.5, p. 164
+min_pq = MinPQ(A, len(A))
+min_pq.build_min_heap()
+print('\nafter build_min_heap:', min_pq.A)
+min_pq.heap_decrease_key(8, 15)
+print('after heap_decrease_key(4 -> 15):', min_pq.A)
+
+A = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1] # cf. Exercise 6.5-2, p. 165
+min_pq = MinPQ(A, len(A))
+min_pq.build_min_heap()
+print('\nafter build_min_heap:', min_pq.A)
+min_pq.min_heap_insert(10)
+print('after min_heap_insert(10):', min_pq.A)
