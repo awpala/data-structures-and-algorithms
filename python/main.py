@@ -160,12 +160,12 @@ A = [16, 14, 10, 8, 7, 9, 3, 2, 4, 1] # cf. Figure 6.5, p. 164
 min_pq = MinPQ(A, len(A))
 min_pq.build_min_heap()
 print('\nafter build_min_heap:', min_pq.A)
-min_pq.heap_decrease_key(8, 15)
-print('after heap_decrease_key(4 -> 15):', min_pq.A)
+min_pq.heap_decrease_key(5, 2)
+print('after heap_decrease_key(9 -> 2):', min_pq.A)
 
 A = [15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1] # cf. Exercise 6.5-2, p. 165
 min_pq = MinPQ(A, len(A))
 min_pq.build_min_heap()
 print('\nafter build_min_heap:', min_pq.A)
-min_pq.min_heap_insert(10)
-print('after min_heap_insert(10):', min_pq.A)
+min_pq.min_heap_insert(6)
+print('after min_heap_insert(6):', min_pq.A)
