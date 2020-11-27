@@ -32,8 +32,7 @@ class Queue:
         if self.queue_empty():
             raise Exception('underflow')
         else:
-            x = self.Q[self.head]
-            self.Q[self.head] = None
+            x = self.Q[self.head]; self.Q[self.head] = None
             if self.head == len(self.Q) - 1:
                 self.head = 0
             else:

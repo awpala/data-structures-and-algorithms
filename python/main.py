@@ -216,3 +216,20 @@ print('after dequeue():', Q.Q)
 Q.enqueue(8)
 Q.dequeue()
 print('after enqueue(8), dequeue():', Q.Q)
+
+# CLRS Section 10.1 Exercises - Deque
+from data_structures.p236_deque import Deque
+
+print('\nExercise 10.1-5 - Deque')
+
+Q = Deque([None for element in range(0, 6)]) # cf. Exercise 10.1-3, p. 235
+Q.tail_enqueue(4)
+Q.tail_enqueue(1)
+Q.tail_enqueue(3)
+print('\nafter tail_enqueue(4), tail_enqueue(1), tail_enqueue(3):', Q.Q)
+Q.head_dequeue()
+print('after head_dequeue():', Q.Q)
+Q.head_enqueue(8)
+print('after head_enqueue(8):', Q.Q)
+Q.tail_dequeue()
+print('after tail_dequeue():', Q.Q)
