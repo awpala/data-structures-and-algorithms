@@ -291,3 +291,45 @@ print('after list_delete(1):'
 , L.nil.next.next.next.next.key, '->'
 , L.nil.next.next.next.next.next.key
 )
+
+# CLRS Section 11.2 - Hash Table with Chaining
+from data_structures.p258_hash_table_chaining import HashTableChaining
+
+print('\nSection 11.2 - Hash Table with Chaining')
+
+T = HashTableChaining(9) # cf. Exercise 11.2-2, p. 261
+T.chained_hash_insert(ListNode(5))
+T.chained_hash_insert(ListNode(28))
+T.chained_hash_insert(ListNode(19))
+T.chained_hash_insert(ListNode(15))
+T.chained_hash_insert(ListNode(20))
+T.chained_hash_insert(ListNode(33))
+T.chained_hash_insert(ListNode(12))
+T.chained_hash_insert(ListNode(17))
+T.chained_hash_insert(ListNode(10))
+print('\nafter chained_hash_insert\'s:')
+for i in range(0, len(T.T)):
+    if T.T[i].head is None:
+        print(f'{i}: {T.T[i].head}')
+    else:
+        str = f'{i}: '
+        pointer = T.T[i].head
+        while(pointer is not None):
+            str += f'{pointer.key} -> '
+            pointer = pointer.next
+        str += 'None'
+        print(str)
+delete_node = T.chained_hash_search(19)
+T.chained_hash_delete(delete_node)
+print('after chained_hash_delete(19):')
+for i in range(0, len(T.T)):
+    if T.T[i].head is None:
+        print(f'{i}: {T.T[i].head}')
+    else:
+        str = f'{i}: '
+        pointer = T.T[i].head
+        while(pointer is not None):
+            str += f'{pointer.key} -> '
+            pointer = pointer.next
+        str += 'None'
+        print(str)
