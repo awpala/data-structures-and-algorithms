@@ -262,3 +262,32 @@ print('after list_delete(4):'
     , L.head.next.next.next.key, '->'
     , L.head.next.next.next.next
 )
+
+# CLRS Section 10.2 - Circular Linked List
+from data_structures.p240_circular_ll import CircularLL
+
+print('\nSection 10.2 - Circular Linked List')
+
+L = CircularLL()
+L.list_insert(ListNode(1))
+L.list_insert(ListNode(4))
+L.list_insert(ListNode(16))
+L.list_insert(ListNode(9)) # cf. Figure 10.4, p. 239
+L.list_insert(ListNode(25))
+print('\nafter list_insert(25):'
+    , L.nil.next.key, '->'
+    , L.nil.next.next.key, '->'
+    , L.nil.next.next.next.key, '->'
+    , L.nil.next.next.next.next.key, '->'
+    , L.nil.next.next.next.next.next.key, '->'
+    , L.nil.next.next.next.next.next.next.key
+)
+delete_node = L.list_search(1)
+L.list_delete(delete_node)
+print('after list_delete(1):'
+, L.nil.next.key, '->'
+, L.nil.next.next.key, '->'
+, L.nil.next.next.next.key, '->'
+, L.nil.next.next.next.next.key, '->'
+, L.nil.next.next.next.next.next.key
+)

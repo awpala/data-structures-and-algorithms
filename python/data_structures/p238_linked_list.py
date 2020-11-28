@@ -1,6 +1,7 @@
 '''
     CLRS Section 10.2, p. 238
 '''
+
 class LinkedList:
     def __init__(self, head=None):
         self.head = head
