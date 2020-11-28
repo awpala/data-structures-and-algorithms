@@ -333,3 +333,66 @@ for i in range(0, len(T.T)):
             pointer = pointer.next
         str += 'None'
         print(str)
+
+# CLRS Section 11.4 - Hash Table with Probing
+from data_structures.p271_hash_table_probing import HashTableProbing
+
+print('\nSection 11.4 - Hash Table with Probing')
+
+T = HashTableProbing(9, 'lp') # cf. Exercise 11.4-1, p. 277
+T.hash_insert(10)
+T.hash_insert(22)
+T.hash_insert(31)
+T.hash_insert(4)
+T.hash_insert(15)
+T.hash_insert(28)
+T.hash_insert(17)
+T.hash_insert(88)
+T.hash_insert(59)
+print(f'\nafter hash_insert\'s with linear probing, with {T.collisions_ins} total collisions:', T.T)
+T.hash_search(59)
+print(f'hash_search(59) with linear probing makes {T.collisions_srch} collisions')
+T.hash_delete(4)
+print(f'after hash_delete(4) with linear probing, with {T.collisions_del} total collisions:', T.T)
+
+T = HashTableProbing(9, 'qp')
+T.hash_insert(10)
+T.hash_insert(22)
+T.hash_insert(31)
+T.hash_insert(4)
+T.hash_insert(15)
+T.hash_insert(28)
+T.hash_insert(17)
+T.hash_insert(88)
+T.hash_insert(59)
+print(f'\nafter hash_insert\'s with quadratic probing, with {T.collisions_ins} total collisions:', T.T)
+T.hash_search(59)
+print(f'hash_search(59) with quadratic probing makes {T.collisions_srch} collisions')
+T.hash_delete(4)
+print(f'after hash_delete(4) with quadratic probing, with {T.collisions_del} total collisions:', T.T)
+
+T = HashTableProbing(9, 'dh')
+T.hash_insert(10)
+T.hash_insert(22)
+T.hash_insert(31)
+T.hash_insert(4)
+T.hash_insert(15)
+T.hash_insert(28)
+T.hash_insert(17)
+T.hash_insert(88)
+T.hash_insert(59)
+print(f'\nafter hash_insert\'s with double hashing, with {T.collisions_ins} total collisions:', T.T)
+T.hash_search(59)
+print(f'hash_search(59) with double hashing makes {T.collisions_srch} collisions')
+T.hash_delete(4)
+print(f'after hash_delete(4) with double hashing, with {T.collisions_del} total collisions:', T.T)
+
+print(
+    '\nSummary of operations for hash table with probing (total collisions):'
+    ,'\n|----------------------|---------------|-----------------|----------------|'
+    ,'\n| Collision Resolution | hash_insert\'s | hash_search(59) | hash_delete(4) |'
+    ,'\n|----------------------|---------------|-----------------|----------------|'
+    ,'\n| Linear Probing       | 14            | 7               | 2              |'
+    ,'\n| Quadratic Probing    | 11            | 6               | 2              |'
+    ,'\n| Double Hashing       | 4             | 0               | 1              |'
+)
