@@ -314,7 +314,7 @@ for i in range(0, len(T.T)):
     else:
         str = f'{i}: '
         pointer = T.T[i].head
-        while(pointer is not None):
+        while pointer is not None:
             str += f'{pointer.key} -> '
             pointer = pointer.next
         str += 'None'
@@ -328,7 +328,7 @@ for i in range(0, len(T.T)):
     else:
         str = f'{i}: '
         pointer = T.T[i].head
-        while(pointer is not None):
+        while pointer is not None:
             str += f'{pointer.key} -> '
             pointer = pointer.next
         str += 'None'
